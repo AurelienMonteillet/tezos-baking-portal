@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { useNetworkStats, useBakersStats, useDataPreloader } from "@/hooks/use-tzkt-data-cached"
+import { useNetworkStats, useBakersStats } from "@/hooks/use-tzkt-data-cached"
 import { formatXTZ, formatPercentage } from "@/lib/tzkt-api"
 
 export default function Home() {
@@ -40,7 +40,6 @@ export default function Home() {
     lastUpdated: bakersLastUpdated,
     refresh: refreshBakers,
   } = useBakersStats()
-  const { preloaded } = useDataPreloader()
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -80,11 +79,6 @@ export default function Home() {
           </div>
           <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-1">
-              {preloaded && (
-                <Badge variant="secondary" className="mr-2 text-xs">
-                  Data Preloaded
-                </Badge>
-              )}
               <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
                 Connect Wallet
               </Button>
@@ -125,10 +119,10 @@ export default function Home() {
               <div className="relative mx-auto aspect-video overflow-hidden rounded-xl sm:w-full lg:order-last">
                 <Image
                   src="/images/tezos/tezos-baking-illustration.png"
-                  width={550}
-                  height={550}
+                  width={800}
+                  height={450}
                   alt="Tezos Baking"
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-transparent"></div>
               </div>

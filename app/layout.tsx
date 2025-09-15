@@ -9,7 +9,16 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Tezos Baking Portal",
   description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
-    generator: 'v0.app'
+  generator: 'Tezos Baking Portal',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/apple-icon.png', type: 'image/png' }
+    ]
+  }
 }
 
 export default function RootLayout({
