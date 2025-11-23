@@ -11,7 +11,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[Live Demo](#) · [Report Bug](../../issues) · [Request Feature](../../issues)
+[Live Demo](https://tezos-baking-portal.vercel.app) · [Report Bug](../../issues) · [Request Feature](../../issues)
 
 </div>
 
@@ -23,6 +23,7 @@
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
+- [Deployment](#deployment)
 - [Project Structure](#project-structure)
 - [Caching System](#caching-system)
 - [Contributing](#contributing)
@@ -124,7 +125,7 @@ Before you begin, ensure you have installed:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/tezos-baking-portal.git
+   git clone https://github.com/AurelienMonteillet/tezos-baking-portal.git
    cd tezos-baking-portal
    ```
 
@@ -169,6 +170,20 @@ pnpm dev
 # Solution 3: Reinstall dependencies
 rm -rf node_modules pnpm-lock.yaml
 pnpm install
+```
+
+---
+
+## 🚀 Deployment
+
+Deploy on **[Vercel](https://vercel.com)** (recommended - zero config, automatic deployments):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AurelienMonteillet/tezos-baking-portal)
+
+Or build for production:
+```bash
+pnpm build
+pnpm start
 ```
 
 ---
@@ -257,38 +272,12 @@ function MyComponent() {
 
 ## 🤝 Contributing
 
-We love contributions! Whether you're fixing bugs, improving documentation, or proposing new features, your help is welcome.
+Contributions are welcome! Feel free to:
+- 🐛 Report bugs
+- 💡 Suggest features
+- 🔧 Submit pull requests
 
-### How to Contribute
-
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make your changes**
-4. **Commit your changes**
-   ```bash
-   git commit -m 'Add some amazing feature'
-   ```
-5. **Push to the branch**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-6. **Open a Pull Request**
-
-### Contribution Guidelines
-
-Please read our [Contributing Guidelines](CONTRIBUTING.md) for detailed information about:
-
-- Code style and standards
-- Commit message conventions
-- Testing requirements
-- Pull request process
-
-### Good First Issues
-
-Looking for a place to start? Check out issues labeled `good first issue`!
+Fork the repo, make your changes, and open a PR!
 
 ---
 
