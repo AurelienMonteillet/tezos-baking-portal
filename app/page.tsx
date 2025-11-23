@@ -218,7 +218,7 @@ export default function Home() {
         {/* ========== Hero Section - Landing Page Introduction ========== */}
         <section
           id="hero"
-          className="relative min-h-[600px] md:min-h-[700px] lg:min-h-screen flex items-center py-8 overflow-hidden bg-black-900"
+          className="relative min-h-[85vh] md:min-h-[700px] lg:min-h-screen flex items-center py-8 overflow-hidden bg-black-900"
         >
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <img
