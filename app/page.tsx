@@ -268,13 +268,42 @@ export default function Home() {
                       </div>
                     ) : (
                       <div className="space-y-6">
-                        <div className="flex items-center justify-center py-8 bg-black-600/50 rounded-lg">
-                          <div className="text-center space-y-4 w-full px-4">
-                            <div className="text-5xl font-bold text-brand-blue-600">
-                              {bakersStats ? `${bakersStats.averageApy.toFixed(2)}%` : "5.8%"}
+                        {/* APY Display Grid - Shows both Staking and Delegation APY side by side */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-4">
+                          {/* Staking APY Card - For active bakers who stake their own XTZ */}
+                          <div className="flex items-center justify-center py-6 bg-brand-blue-600/10 rounded-lg border border-brand-blue-600/20">
+                            <div className="text-center space-y-2 w-full px-4">
+                              <div className="text-4xl sm:text-5xl font-bold text-brand-blue-600">
+                                {bakersStats ? `${bakersStats.stakingApy.toFixed(2)}%` : "9.73%"}
+                              </div>
+                              <p className="text-white-700 text-xs sm:text-sm font-medium">Staking APY</p>
+                              <p className="text-white-600 text-xs">For active bakers</p>
                             </div>
-                            <p className="text-white-700 text-sm">{networkStatsContent.stakingApy.label}</p>
                           </div>
+                          {/* Delegation APY Card - For delegators who delegate their XTZ to a baker */}
+                          <div className="flex items-center justify-center py-6 bg-brand-blue-600/10 rounded-lg border border-brand-blue-600/20">
+                            <div className="text-center space-y-2 w-full px-4">
+                              <div className="text-4xl sm:text-5xl font-bold text-brand-blue-600">
+                                {bakersStats ? `${bakersStats.delegationApy.toFixed(2)}%` : "3.24%"}
+                              </div>
+                              <p className="text-white-700 text-xs sm:text-sm font-medium">Delegation APY</p>
+                              <p className="text-white-600 text-xs">For delegators</p>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Data source attribution */}
+                        <div className="text-center mt-2">
+                          <p className="text-white-600/70 text-[10px] sm:text-xs font-light">
+                            APY data provided by{" "}
+                            <a
+                              href="https://tez.cool"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-brand-blue-600/80 hover:text-brand-blue-500 transition-colors"
+                            >
+                              tez.cool
+                            </a>
+                          </p>
                         </div>
                       </div>
                     )}
@@ -341,7 +370,7 @@ export default function Home() {
                         </div>
                         <div className="flex justify-between items-center py-2">
                           <span className="text-white-600">{networkStatsContent.networkPerformance.labels.blockTime}</span>
-                          <span className="font-semibold text-white-900 text-lg">30 seconds</span>
+                          <span className="font-semibold text-white-900 text-lg">8 seconds</span>
                         </div>
                       </div>
                     )}
@@ -560,7 +589,7 @@ export default function Home() {
         </section>
 
         {/* ========== Useful Tools Section - External Resources ========== */}
-        <section id="tools" className="relative min-h-screen flex items-center py-8 overflow-hidden bg-black-900">
+        <section id="tools" className="relative min-h-screen flex items-center py-16 sm:py-24 overflow-hidden bg-black-900">
           <Image
             src={toolsContent.images.background}
             alt=""

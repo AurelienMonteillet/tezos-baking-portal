@@ -238,6 +238,8 @@ export function useBakersStats() {
     activeBakers: number
     totalStaking: number
     averageApy: number
+    stakingApy: number
+    delegationApy: number
   } | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -248,7 +250,10 @@ export function useBakersStats() {
       setLoading(true)
 
       if (force) {
+        // Invalidate bakers stats cache and related network cache
         cacheManager.invalidate("bakers_stats")
+        cacheManager.invalidate("network_stats")
+        cacheManager.invalidate("current_cycle")
       }
 
       const bakersStats = await getBakersStats()
