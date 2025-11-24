@@ -23,6 +23,7 @@
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
+- [Content Management](#content-management)
 - [Deployment](#deployment)
 - [Project Structure](#project-structure)
 - [Caching System](#caching-system)
@@ -174,6 +175,30 @@ pnpm install
 
 ---
 
+## 📝 Content Management
+
+All website content is separated from the code for easy maintenance. You can find all text, links, and image references in the `content/` directory.
+
+To update any text or link:
+1. Navigate to the `content/` folder.
+2. Open the relevant file (e.g., `hero.ts`, `about.ts`).
+3. Modify the text strings, href values, or image paths.
+4. Save the file - the changes will reflect automatically.
+
+**Files:**
+- `header.ts`: Navigation menu and logo.
+- `hero.ts`: Hero section text, buttons, and images.
+- `network-stats.ts`: Statistics section text.
+- `about.ts`: "What is Baking?" section.
+- `get-started.ts`: "How to get started" guide cards.
+- `governance.ts`: Governance process steps.
+- `tools.ts`: Useful tools cards.
+- `documentation.ts`: Documentation links.
+- `cta.ts`: Call to action section.
+- `footer.ts`: Footer text and copyright.
+
+---
+
 ## 🚀 Deployment
 
 Deploy on **[Vercel](https://vercel.com)** (recommended - zero config, automatic deployments):
@@ -205,6 +230,17 @@ tezos-baking-portal/
 │   │   ├── tabs.tsx
 │   │   └── badge.tsx
 │   └── theme-provider.tsx       # Theme context provider
+├── content/                      # Text content, links, and image references
+│   ├── about.ts
+│   ├── cta.ts
+│   ├── documentation.ts
+│   ├── footer.ts
+│   ├── get-started.ts
+│   ├── governance.ts
+│   ├── header.ts
+│   ├── hero.ts
+│   ├── network-stats.ts
+│   └── tools.ts
 ├── hooks/                        # Custom React hooks
 │   └── use-tzkt-data-cached.ts  # Data fetching hooks with cache
 ├── lib/                          # Utilities and API clients

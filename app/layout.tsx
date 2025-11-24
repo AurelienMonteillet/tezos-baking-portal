@@ -37,6 +37,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Tezos Baking Portal",
   description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
+  icons: {
+    icon: "/tezos-logo.png",
+  },
 }
 
 /**
