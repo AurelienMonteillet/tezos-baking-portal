@@ -236,7 +236,6 @@ export default function Home() {
               <p className="text-white-800 text-base sm:text-lg leading-relaxed px-4">
                 {networkStatsContent.description}
               </p>
-              <p className="text-white-600 text-sm">[ Segmented control component ]</p>
             </div>
 
             <div className="w-full">
