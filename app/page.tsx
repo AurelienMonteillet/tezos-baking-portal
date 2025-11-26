@@ -28,6 +28,8 @@ import {
   X,
   Sparkles,
   ArrowRight,
+  ArrowUp,
+  Github,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -73,15 +75,25 @@ export default function Home() {
   // UI state management
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [showScrollTop, setShowScrollTop] = useState(false)
 
-  // Handle sticky header on scroll
+  // Handle sticky header and scroll-to-top button on scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
+      setShowScrollTop(window.scrollY > 400)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
 
   /**
    * Handle smooth scroll to section
@@ -108,7 +120,7 @@ export default function Home() {
         }`}
       >
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-8">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="https://tezos.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
             <img src={headerContent.logo} alt="Tezos" className="h-8 w-auto" />
             <span className="font-heading text-lg font-semibold text-white">{headerContent.title}</span>
           </Link>
@@ -719,17 +731,84 @@ export default function Home() {
       </main>
 
       {/* ========== Footer ========== */}
-      <footer className="w-full border-t border-white/10 py-6 md:py-8 bg-black-900">
-        <div className="container flex flex-col items-center justify-between gap-4 px-4 sm:px-6 py-6 md:h-24 md:flex-row md:gap-2">
-          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-2">
-            <img src={footerContent.images.logo} alt="Tezos" className="h-6 w-6" />
-            <p className="text-center text-sm leading-loose md:text-left text-white-600">
-              {footerContent.text}
-            </p>
+      <footer className="w-full border-t border-white/10 bg-black-900">
+        <div className="container mx-auto px-4 sm:px-6 py-8">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            
+            {/* Left Side: Logo + Built by + GitHub */}
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6 md:order-1">
+              <div className="flex items-center gap-2">
+                <img src={footerContent.images.logo} alt="Tezos" className="h-5 w-5 opacity-90" />
+                <span className="text-sm text-white-600">
+                  Built by{" "}
+                  <Link 
+                    href={footerContent.builtBy[0].href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors"
+                  >
+                    {footerContent.builtBy[0].text}
+                  </Link>
+                  {" & "}
+                  <Link 
+                    href={footerContent.builtBy[1].href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors"
+                  >
+                    {footerContent.builtBy[1].text}
+                  </Link>
+                </span>
+              </div>
+              
+              <span className="hidden h-4 w-px bg-white/10 sm:block" />
+              
+              <Link 
+                href={footerContent.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-sm text-white-600 transition-colors hover:text-white"
+              >
+                <Github className="h-4 w-4 opacity-70 transition-opacity group-hover:opacity-100" />
+                <span>{footerContent.githubText} GitHub</span>
+              </Link>
+            </div>
+
+            {/* Right Side: Links + Copyright */}
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6 md:order-2">
+              <div className="flex items-center gap-6">
+                {footerContent.links.map((link, index) => (
+                  <Link 
+                    key={index}
+                    href={link.href}
+                    className="text-sm text-white-600 transition-colors hover:text-white"
+                  >
+                    {link.text}
+                  </Link>
+                ))}
+              </div>
+
+              <span className="hidden h-4 w-px bg-white/10 sm:block" />
+
+              <p className="text-sm text-white-600">
+                {footerContent.copyright}
+              </p>
+            </div>
+            
           </div>
-          <p className="text-center text-sm text-white-600 md:text-right">{footerContent.copyright}</p>
         </div>
       </footer>
+
+      {/* ========== Scroll to Top Button ========== */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-40 h-12 w-12 rounded-full bg-brand-blue-600/80 backdrop-blur-sm text-white shadow-lg transition-all hover:bg-brand-blue-600 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 focus:ring-offset-2 focus:ring-offset-black-900"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="h-5 w-5 mx-auto" />
+        </button>
+      )}
     </div>
   )
 }
