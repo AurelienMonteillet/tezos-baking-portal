@@ -5,6 +5,10 @@ export const networkStatsContent = {
     title: "Current APY",
     description: "Estimated annual percentage yield for staking and delegating XTZ",
     label: "Annual Yield",
+    dataSource: {
+      text: "tez.cool",
+      href: "https://tez.cool",
+    },
     buttons: {
       historical: {
         text: "Historical data",
@@ -26,7 +30,7 @@ export const networkStatsContent = {
       blockTime: "Block Time",
     },
     link: {
-      text: "View detailed analytics",
+      text: "Analytics",
       href: "https://tzkt.io/stats",
     },
   },

@@ -1,6 +1,7 @@
 export const headerContent = {
   logo: "/tezos-logo.png",
   title: "Tezos Baking Portal",
+  logoLink: "https://tezos.com/",
   navLinks: [
     { text: "Network Stats", href: "#network-stats" },
     { text: "About", href: "#about" },
@@ -8,7 +9,6 @@ export const headerContent = {
     { text: "Governance", href: "#governance" },
     { text: "Tools", href: "#tools" },
     { text: "Docs", href: "#docs" },
-    { text: "Baker Stats", href: "/statistics" },
   ],
 }
 

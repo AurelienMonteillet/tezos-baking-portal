@@ -64,8 +64,8 @@ export function NetworkStatsSection({
         </div>
 
         <div className="w-full">
-          <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2">
-            <Card className="bg-black-800 border-black-600 min-w-0">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2 items-stretch">
+            <Card className="bg-black-800 border-black-600 min-w-0 flex flex-col">
               <CardHeader className="p-4 sm:p-6">
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
@@ -88,7 +88,7 @@ export function NetworkStatsSection({
                   </Button>
                 </div>
               </CardHeader>
-              <CardContent className="p-4 sm:p-6">
+              <CardContent className="p-4 sm:p-6 flex-1">
                 {networkLoading || bakersLoading ? (
                   <div className="flex items-center justify-center py-12">
                     <div className="text-center space-y-3">
@@ -129,13 +129,13 @@ export function NetworkStatsSection({
                       <p className="text-white-800 text-[10px] sm:text-xs font-light">
                         APY data provided by{" "}
                         <a
-                          href="https://tez.cool"
+                          href={networkStatsContent.stakingApy.dataSource.href}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-brand-blue-400 hover:text-brand-blue-300 transition-colors underline-offset-4 hover:underline"
-                          aria-label="Visit tez.cool for APY data"
+                          aria-label={`Visit ${networkStatsContent.stakingApy.dataSource.text} for APY data`}
                         >
-                          tez.cool
+                          {networkStatsContent.stakingApy.dataSource.text}
                         </a>
                       </p>
                     </div>
@@ -143,14 +143,16 @@ export function NetworkStatsSection({
                 )}
               </CardContent>
               <CardFooter className="flex flex-col sm:flex-row gap-3 p-4 sm:p-6">
-                <Button
-                  variant="outline"
-                  className="w-full sm:flex-1 rounded-full border-white-600 text-white-900 bg-transparent hover:bg-black-600 hover:text-white-900"
-                  aria-label={networkStatsContent.stakingApy.buttons.historical.text}
-                >
-                  {networkStatsContent.stakingApy.buttons.historical.text}
-                </Button>
-                <Link href={networkStatsContent.stakingApy.buttons.bakerStats.href} className="w-full sm:flex-1">
+                <Link href={networkStatsContent.stakingApy.buttons.historical.href} className="w-full sm:flex-1" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="w-full rounded-full border-white-600 text-white-900 bg-transparent hover:bg-black-600 hover:text-white-900"
+                    aria-label={networkStatsContent.stakingApy.buttons.historical.text}
+                  >
+                    {networkStatsContent.stakingApy.buttons.historical.text}
+                  </Button>
+                </Link>
+                <Link href={networkStatsContent.stakingApy.buttons.bakerStats.href} className="w-full sm:flex-1" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full rounded-full bg-white-900 text-black-900 hover:bg-white-800" aria-label={networkStatsContent.stakingApy.buttons.bakerStats.text}>
                     {networkStatsContent.stakingApy.buttons.bakerStats.text}
                   </Button>
@@ -158,7 +160,7 @@ export function NetworkStatsSection({
               </CardFooter>
             </Card>
 
-            <Card className="bg-black-800 border-black-600 min-w-0">
+            <Card className="bg-black-800 border-black-600 min-w-0 flex flex-col">
               <CardHeader className="p-4 sm:p-6">
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
@@ -181,7 +183,7 @@ export function NetworkStatsSection({
                   </Button>
                 </div>
               </CardHeader>
-              <CardContent className="p-4 sm:p-6">
+              <CardContent className="p-4 sm:p-6 flex-1">
                 {networkLoading || bakersLoading ? (
                   <div className="flex items-center justify-center py-12">
                     <div className="animate-spin rounded-full h-8 w-8 border-2 border-brand-blue-600 border-t-transparent"></div>
@@ -211,14 +213,11 @@ export function NetworkStatsSection({
                   </div>
                 )}
               </CardContent>
-              <CardFooter className="p-4 sm:p-6">
-                    <Link
-                      href={networkStatsContent.networkPerformance.link.href}
-                      className="text-sm text-white-900 underline underline-offset-4 flex items-center hover:text-white-800 transition-colors"
-                      aria-label={networkStatsContent.networkPerformance.link.text}
-                    >
-                      {networkStatsContent.networkPerformance.link.text}
-                      <ChevronRight className="h-4 w-4 ml-1" />
+              <CardFooter className="flex flex-col sm:flex-row gap-3 p-4 sm:p-6">
+                    <Link href={networkStatsContent.networkPerformance.link.href} className="w-full sm:flex-1" target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full rounded-full bg-white-900 text-black-900 hover:bg-white-800 text-sm" aria-label={networkStatsContent.networkPerformance.link.text}>
+                        {networkStatsContent.networkPerformance.link.text}
+                      </Button>
                     </Link>
               </CardFooter>
             </Card>

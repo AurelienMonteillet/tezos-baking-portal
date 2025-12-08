@@ -26,7 +26,7 @@ export function Header({ isScrolled, mobileMenuOpen, onMobileMenuToggle, onSmoot
       }`}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-8">
-        <Link href="https://tezos.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" aria-label="Tezos homepage">
+        <Link href={headerContent.logoLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" aria-label="Tezos homepage">
           <Image src={headerContent.logo} alt="Tezos logo" width={32} height={32} className="h-8 w-auto" priority />
           <span className="font-heading text-lg font-semibold text-white">{headerContent.title}</span>
         </Link>
@@ -59,20 +59,17 @@ export function Header({ isScrolled, mobileMenuOpen, onMobileMenuToggle, onSmoot
       {mobileMenuOpen && (
         <div className="md:hidden bg-black-900/95 backdrop-blur-md" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
           <nav className="container px-4 py-4 flex flex-col gap-4" aria-label="Mobile navigation">
-            {headerContent.navLinks.map((link, index) => {
-              const isExternal = link.href.startsWith("/")
-              return (
-                <Link
-                  key={index}
-                  href={link.href}
-                  onClick={isExternal ? undefined : (e) => onSmoothScroll(e, link.href)}
-                  className="text-sm font-medium text-white/90 transition-colors hover:text-white py-2 underline-offset-4 hover:underline"
-                  aria-label={`Navigate to ${link.text}${isExternal ? " page" : " section"}`}
-                >
-                  {link.text}
-                </Link>
-              )
-            })}
+            {headerContent.navLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                onClick={(e) => onSmoothScroll(e, link.href)}
+                className="text-sm font-medium text-white/90 transition-colors hover:text-white py-2 underline-offset-4 hover:underline"
+                aria-label={`Navigate to ${link.text} section`}
+              >
+                {link.text}
+              </Link>
+            ))}
           </nav>
         </div>
       )}
