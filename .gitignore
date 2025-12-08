@@ -61,3 +61,6 @@ scripts/
 # Personal documentation files (local only)
 docs/personal/
 
+# Cursor rules (personal configuration, not for team)
+.cursorrules
+
