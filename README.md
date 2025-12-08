@@ -11,7 +11,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[Live Demo](https://tezos-baking-portal.vercel.app) · [Report Bug](../../issues) · [Request Feature](../../issues)
+[Live Demo](https://baking-portal.vercel.app) · [Report Bug](../../issues) · [Request Feature](../../issues)
 
 </div>
 
@@ -132,12 +132,12 @@ Before you begin, ensure you have installed:
 
 2. **Install dependencies**
    ```bash
-   pnpm install
+   npm install
    ```
 
 3. **Run the development server**
    ```bash
-   pnpm dev
+   npm run dev
    ```
 
 4. **Open your browser**
@@ -148,10 +148,10 @@ Before you begin, ensure you have installed:
 
 ```bash
 # Create optimized production build
-pnpm build
+npm run build
 
 # Start production server
-pnpm start
+npm start
 ```
 
 ### Troubleshooting
@@ -169,8 +169,8 @@ rm -rf .next
 pnpm dev
 
 # Solution 3: Reinstall dependencies
-rm -rf node_modules pnpm-lock.yaml
-pnpm install
+rm -rf node_modules package-lock.json
+npm install
 ```
 
 ---

@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL 
       ? `${process.env.NEXT_PUBLIC_SITE_URL}/`
-      : "https://tezos-baking-portal.vercel.app/",
+      : "https://baking-portal.vercel.app/",
   },
   openGraph: {
     type: "website",
@@ -136,12 +136,12 @@ export default function RootLayout({
               "@type": "WebSite",
               name: "Tezos Baking Portal",
               description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
-              url: process.env.NEXT_PUBLIC_SITE_URL || "https://tezos-baking-portal.vercel.app",
+              url: process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app",
               potentialAction: {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://tezos-baking-portal.vercel.app"}/statistics?q={search_term_string}`,
+                  urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"}/statistics?q={search_term_string}`,
                 },
                 "query-input": "required name=search_term_string",
               },
