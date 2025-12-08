@@ -118,6 +118,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${roboto.variable}`} suppressHydrationWarning>
       <head>
+        {/* Google Search Console verification */}
+        <meta name="google-site-verification" content="H8WGaQWNNKHdKrzh9TseVz6opGZlWwr0wK-c2Re0T5Q" />
+        
         {/* Favicon - Next.js 14 automatically serves app/icon.png */}
         {/* Additional favicon links for better browser compatibility */}
         <link rel="icon" type="image/png" sizes="32x32" href="/tezos-logo.png" />
