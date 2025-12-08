@@ -132,7 +132,7 @@ export function NetworkStatsSection({
                           href="https://tez.cool"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-brand-blue-600/80 hover:text-brand-blue-500 transition-colors underline-offset-4 hover:underline"
+                          className="text-brand-blue-400 hover:text-brand-blue-300 transition-colors underline-offset-4 hover:underline"
                           aria-label="Visit tez.cool for APY data"
                         >
                           tez.cool
