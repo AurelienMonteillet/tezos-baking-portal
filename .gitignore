@@ -55,3 +55,6 @@ Thumbs.db
 package-lock.json
 yarn.lock
 
+# Local scripts (not for production)
+scripts/
+

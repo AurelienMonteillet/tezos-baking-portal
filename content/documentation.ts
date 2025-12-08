@@ -19,7 +19,7 @@ export const documentationContent = {
         {
           title: "DAL Documentation",
           description: "Learn about the Data Availability Layer and how to participate.",
-          href: "https://docs.tezos.com/architecture/dal",
+          href: "https://docs.tezos.com/architecture/data-availability-layer",
         },
       ],
     },
