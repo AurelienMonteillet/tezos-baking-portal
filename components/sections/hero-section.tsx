@@ -5,6 +5,7 @@
  */
 
 import Link from "next/link"
+import Image from "next/image"
 import { heroContent } from "@/content/hero"
 
 export function HeroSection() {
@@ -14,11 +15,14 @@ export function HeroSection() {
       className="relative min-h-[85vh] md:min-h-[700px] lg:min-h-screen flex items-center py-8 overflow-hidden bg-black-900"
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <img
+        <Image
           src={heroContent.images.background}
           alt=""
+          fill
+          priority
           className="absolute top-0 right-0 w-full h-full object-cover object-top-right opacity-70"
           style={{ maxWidth: "100%", transform: "scale(1.2)" }}
+          aria-hidden="true"
         />
       </div>
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
@@ -46,11 +50,13 @@ export function HeroSection() {
             </div>
           </div>
           <div className="relative lg:block overflow-hidden">
-            <div className="aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 max-h-[300px] md:max-h-[400px] lg:max-h-none">
-              <img
+            <div className="aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 max-h-[300px] md:max-h-[400px] lg:max-h-none relative">
+              <Image
                 src={heroContent.images.illustration}
-                alt="Tezos Baking Portal"
-                className="h-full w-full object-cover"
+                alt="Tezos Baking Portal - Comprehensive resource for baking"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
           </div>

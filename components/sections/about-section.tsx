@@ -51,10 +51,13 @@ export function AboutSection() {
           </div>
 
           <div className="relative order-first lg:order-last">
-            <img
+            <Image
               src={aboutContent.images.illustration}
-              alt="Baking Visualization"
+              alt="Baking Visualization - Tezos network diagram showing baking process"
+              width={800}
+              height={600}
               className="w-full h-auto rounded-xl md:rounded-2xl"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
         </div>

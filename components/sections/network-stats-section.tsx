@@ -81,6 +81,7 @@ export function NetworkStatsSection({
                     variant="ghost"
                     className="text-white-600 hover:text-white-900 hover:bg-black-600 flex-shrink-0"
                     disabled={bakersLoading}
+                    aria-label="Refresh bakers statistics"
                   >
                     <RefreshCw className={`h-4 w-4 ${bakersLoading ? "animate-spin" : ""}`} />
                   </Button>
@@ -143,6 +144,7 @@ export function NetworkStatsSection({
                 <Button
                   variant="outline"
                   className="w-full sm:flex-1 rounded-full border-white-600 text-white-900 bg-transparent hover:bg-black-600 hover:text-white-900"
+                  aria-label={networkStatsContent.stakingApy.buttons.historical.text}
                 >
                   {networkStatsContent.stakingApy.buttons.historical.text}
                 </Button>
@@ -171,6 +173,7 @@ export function NetworkStatsSection({
                     variant="ghost"
                     className="text-white-600 hover:text-white-900 hover:bg-black-600 flex-shrink-0"
                     disabled={networkLoading}
+                    aria-label="Refresh network statistics"
                   >
                     <RefreshCw className={`h-4 w-4 ${networkLoading ? "animate-spin" : ""}`} />
                   </Button>
@@ -207,13 +210,14 @@ export function NetworkStatsSection({
                 )}
               </CardContent>
               <CardFooter className="p-4 sm:p-6">
-                <Link
-                  href={networkStatsContent.networkPerformance.link.href}
-                  className="text-sm text-white-900 underline underline-offset-4 flex items-center hover:text-white-800 transition-colors"
-                >
-                  {networkStatsContent.networkPerformance.link.text}
-                  <ChevronRight className="h-4 w-4 ml-1" />
-                </Link>
+                    <Link
+                      href={networkStatsContent.networkPerformance.link.href}
+                      className="text-sm text-white-900 underline underline-offset-4 flex items-center hover:text-white-800 transition-colors"
+                      aria-label={networkStatsContent.networkPerformance.link.text}
+                    >
+                      {networkStatsContent.networkPerformance.link.text}
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </Link>
               </CardFooter>
             </Card>
           </div>

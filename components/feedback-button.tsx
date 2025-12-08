@@ -70,7 +70,7 @@ export function FeedbackButton() {
           // Dynamic positioning: shifts to left when ScrollToTop is visible, otherwise same position as ScrollToTop
           isShifted ? "right-24" : "right-8"
         )}
-        aria-label="Ouvrir le formulaire de feedback"
+        aria-label="Open feedback form"
       >
         <MessageSquare className="h-5 w-5 mx-auto" />
       </button>
@@ -110,7 +110,7 @@ export function FeedbackButton() {
                 size="icon"
                 onClick={() => setIsOpen(false)}
                 className="text-white-600 hover:text-white-900 hover:bg-black-600"
-                aria-label="Fermer le modal"
+                aria-label="Close modal"
               >
                 <X className="h-5 w-5" />
               </Button>
@@ -121,7 +121,7 @@ export function FeedbackButton() {
               <iframe
                 src={ASANA_FORM_URL}
                 className="w-full h-full border-0"
-                title="Formulaire de feedback Asana"
+                title="Asana feedback form"
                 allow="clipboard-write"
                 sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
               />

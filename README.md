@@ -215,6 +215,8 @@ pnpm start
 
 ## 📂 Project Structure
 
+> 📖 **For detailed architecture documentation, see [ARCHITECTURE.md](./ARCHITECTURE.md)**
+
 ```
 tezos-baking-portal/
 ├── app/                          # Next.js App Router

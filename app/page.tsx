@@ -95,6 +95,13 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-black-900 relative overflow-hidden">
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-blue-600 focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue-500"
+      >
+        Skip to main content
+      </a>
       <Header
         isScrolled={isScrolled}
         mobileMenuOpen={mobileMenuOpen}
@@ -102,7 +109,7 @@ export default function Home() {
         onSmoothScroll={handleSmoothScroll}
       />
 
-      <main className="flex-1 pt-16">
+      <main id="main-content" className="flex-1 pt-16" tabIndex={-1}>
         <HeroSection />
         <NetworkStatsSection
           bakersStats={bakersStats}

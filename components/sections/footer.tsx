@@ -5,6 +5,7 @@
  */
 
 import Link from "next/link"
+import Image from "next/image"
 import { Github } from "lucide-react"
 import { footerContent } from "@/content/footer"
 
@@ -16,7 +17,7 @@ export function Footer() {
           {/* Left Side: Logo + Built by + GitHub */}
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6 md:order-1">
             <div className="flex items-center gap-2">
-              <img src={footerContent.images.logo} alt="Tezos" className="h-5 w-5 opacity-90" />
+              <Image src={footerContent.images.logo} alt="Tezos logo" width={20} height={20} className="h-5 w-5 opacity-90" />
               <span className="text-sm text-white-600">
                 Built by{" "}
                 <Link
@@ -45,7 +46,8 @@ export function Footer() {
               href={footerContent.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-sm text-white-600 transition-colors hover:text-white"
+              className="group flex items-center gap-2 text-sm text-white-600 transition-colors hover:text-white underline-offset-4 hover:underline"
+              aria-label="View source code on GitHub"
             >
               <Github className="h-4 w-4 opacity-70 transition-opacity group-hover:opacity-100" />
               <span>{footerContent.githubText} GitHub</span>
@@ -59,7 +61,7 @@ export function Footer() {
                 <Link
                   key={index}
                   href={link.href}
-                  className="text-sm text-white-600 transition-colors hover:text-white"
+                  className="text-sm text-white-600 transition-colors hover:text-white underline-offset-4 hover:underline"
                 >
                   {link.text}
                 </Link>

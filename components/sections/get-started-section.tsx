@@ -5,6 +5,7 @@
  */
 
 import Link from "next/link"
+import Image from "next/image"
 import { ChevronRight, ArrowRight } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { getStartedContent } from "@/content/get-started"
@@ -16,11 +17,13 @@ export function GetStartedSection() {
       className="relative min-h-screen flex items-center py-12 md:py-16 lg:py-20 overflow-hidden bg-black-900"
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <img
+        <Image
           src={getStartedContent.images.background}
           alt=""
+          fill
           className="absolute bottom-0 right-0 w-full h-full object-cover object-bottom-right opacity-70"
           style={{ maxWidth: "100%", transform: "scale(1.2)" }}
+          aria-hidden="true"
         />
       </div>
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
@@ -59,7 +62,8 @@ export function GetStartedSection() {
               <CardFooter>
                 <Link
                   href={card.href}
-                  className="text-sm font-medium text-brand-blue-400 flex items-center hover:text-brand-blue-300 transition-colors"
+                  className="text-sm font-medium text-brand-blue-400 flex items-center hover:text-brand-blue-300 transition-colors underline-offset-4 hover:underline"
+                  aria-label={`${card.linkText} - ${card.title}`}
                 >
                   {card.linkText} <ChevronRight className="h-4 w-4 ml-1" />
                 </Link>

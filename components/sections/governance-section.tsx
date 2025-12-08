@@ -33,13 +33,13 @@ export function GovernanceSection() {
 
         <div className="mx-auto grid max-w-6xl items-center gap-6 md:gap-8 lg:gap-12 lg:grid-cols-2">
           <div className="relative aspect-video bg-black-800 rounded-xl md:rounded-2xl overflow-hidden border border-black-600">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <img
-                src={governanceContent.images.illustration}
-                alt="Tezos Governance"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <Image
+              src={governanceContent.images.illustration}
+              alt="Tezos on-chain governance process visualization"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
 
           <div className="flex flex-col space-y-4 md:space-y-6">

@@ -5,6 +5,7 @@
  */
 
 import Link from "next/link"
+import Image from "next/image"
 import { ctaContent } from "@/content/cta"
 
 export function CTASection() {
@@ -16,9 +17,10 @@ export function CTASection() {
           style={{ background: "linear-gradient(309.94deg, #6C235E 16.9%, #5C72FA 93.93%)" }}
         >
           <div className="absolute inset-0 pointer-events-none">
-            <img
+            <Image
               src={ctaContent.images.overlay}
               alt=""
+              fill
               className="absolute inset-0 h-full w-full object-cover opacity-30 sm:opacity-50"
               aria-hidden="true"
             />
