@@ -13,4 +13,5 @@ export const footerContent = {
   images: {
     logo: "/tezos-logo.png",
   },
+  copyright: `© ${new Date().getFullYear()} Tezos Baking Portal. All rights reserved.`,
 }

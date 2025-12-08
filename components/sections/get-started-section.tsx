@@ -47,7 +47,7 @@ export function GetStartedSection() {
                   <card.icon className="h-6 w-6 text-brand-blue-600" />
                 </div>
                 <CardTitle className="text-white-900 text-xl">{card.title}</CardTitle>
-                <CardDescription className="text-white-600">{card.description}</CardDescription>
+                <CardDescription className="text-white-700">{card.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-1">
                 <ul className="space-y-3">

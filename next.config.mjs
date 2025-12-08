@@ -4,15 +4,66 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    unoptimized: false, // Enable Next.js image optimization in production
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // Cache headers: no cache in development, proper caching in production
+  // Cache headers and security headers
   async headers() {
+    const securityHeaders = [
+      {
+        key: 'X-DNS-Prefetch-Control',
+        value: 'on',
+      },
+      {
+        key: 'Strict-Transport-Security',
+        value: 'max-age=63072000; includeSubDomains; preload',
+      },
+      {
+        key: 'X-Frame-Options',
+        value: 'SAMEORIGIN',
+      },
+      {
+        key: 'X-Content-Type-Options',
+        value: 'nosniff',
+      },
+      {
+        key: 'X-XSS-Protection',
+        value: '1; mode=block',
+      },
+      {
+        key: 'Referrer-Policy',
+        value: 'origin-when-cross-origin',
+      },
+      {
+        key: 'Permissions-Policy',
+        value: 'camera=(), microphone=(), geolocation=()',
+      },
+      {
+        key: 'Content-Security-Policy',
+        value: [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://us.i.posthog.com https://*.posthog.com",
+          "style-src 'self' 'unsafe-inline'",
+          "img-src 'self' data: https:",
+          "font-src 'self' data:",
+          "connect-src 'self' https://api.tzkt.io https://tez.cool https://us.i.posthog.com https://*.posthog.com",
+          "frame-src 'self' https://form.asana.com",
+          "frame-ancestors 'self'",
+        ].join('; '),
+      },
+    ]
+
     if (process.env.NODE_ENV === 'production') {
       return [
+        {
+          source: '/:path*',
+          headers: securityHeaders,
+        },
         {
           source: '/_next/static/:path*',
           headers: [
@@ -20,6 +71,7 @@ const nextConfig = {
               key: 'Cache-Control',
               value: 'public, max-age=31536000, immutable',
             },
+            ...securityHeaders,
           ],
         },
         {
@@ -29,12 +81,17 @@ const nextConfig = {
               key: 'Cache-Control',
               value: 'public, max-age=31536000, immutable',
             },
+            ...securityHeaders,
           ],
         },
       ]
     }
-    // Development: no cache to prevent 404 errors
+    // Development: no cache to prevent 404 errors, but keep security headers
     return [
+      {
+        source: '/:path*',
+        headers: securityHeaders,
+      },
       {
         source: '/_next/:path*',
         headers: [
@@ -42,6 +99,7 @@ const nextConfig = {
             key: 'Cache-Control',
             value: 'no-store, must-revalidate',
           },
+          ...securityHeaders,
         ],
       },
     ]

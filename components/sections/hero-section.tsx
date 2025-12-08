@@ -38,12 +38,14 @@ export function HeroSection() {
               <Link
                 href={heroContent.primaryButton.href}
                 className="inline-flex h-10 md:h-11 items-center justify-center rounded-full bg-white-900 text-black-900 px-5 sm:px-6 md:px-8 text-sm font-semibold shadow-lg transition-all hover:bg-white-800"
+                aria-label={heroContent.primaryButton.text}
               >
                 {heroContent.primaryButton.text}
               </Link>
               <Link
                 href={heroContent.secondaryButton.href}
                 className="inline-flex h-10 md:h-11 items-center justify-center rounded-full border-2 border-white-700 text-white-900 px-5 sm:px-6 md:px-8 text-sm font-semibold transition-all hover:bg-white-900/10"
+                aria-label={heroContent.secondaryButton.text}
               >
                 {heroContent.secondaryButton.text}
               </Link>

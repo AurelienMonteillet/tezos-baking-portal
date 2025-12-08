@@ -18,13 +18,14 @@ export function Footer() {
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6 md:order-1">
             <div className="flex items-center gap-2">
               <Image src={footerContent.images.logo} alt="Tezos logo" width={20} height={20} className="h-5 w-5 opacity-90" />
-              <span className="text-sm text-white-600">
+              <span className="text-sm text-white-700">
                 Built by{" "}
                 <Link
                   href={footerContent.builtBy[0].href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors underline-offset-4 hover:underline"
+                  aria-label={`Visit ${footerContent.builtBy[0].text} website`}
                 >
                   {footerContent.builtBy[0].text}
                 </Link>
@@ -33,7 +34,8 @@ export function Footer() {
                   href={footerContent.builtBy[1].href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors underline-offset-4 hover:underline"
+                  aria-label={`Visit ${footerContent.builtBy[1].text} website`}
                 >
                   {footerContent.builtBy[1].text}
                 </Link>
@@ -46,7 +48,7 @@ export function Footer() {
               href={footerContent.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-sm text-white-600 transition-colors hover:text-white underline-offset-4 hover:underline"
+              className="group flex items-center gap-2 text-sm text-white-700 transition-colors hover:text-white underline-offset-4 hover:underline"
               aria-label="View source code on GitHub"
             >
               <Github className="h-4 w-4 opacity-70 transition-opacity group-hover:opacity-100" />
@@ -61,7 +63,8 @@ export function Footer() {
                 <Link
                   key={index}
                   href={link.href}
-                  className="text-sm text-white-600 transition-colors hover:text-white underline-offset-4 hover:underline"
+                  className="text-sm text-white-700 transition-colors hover:text-white underline-offset-4 hover:underline"
+                  aria-label={link.text}
                 >
                   {link.text}
                 </Link>
@@ -70,7 +73,7 @@ export function Footer() {
 
             <span className="hidden h-4 w-px bg-white/10 sm:block" />
 
-            <p className="text-sm text-white-600">{footerContent.copyright}</p>
+            <p className="text-sm text-white-700">{footerContent.copyright}</p>
           </div>
         </div>
       </div>

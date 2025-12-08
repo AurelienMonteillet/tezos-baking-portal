@@ -38,7 +38,7 @@ export function Header({ isScrolled, mobileMenuOpen, onMobileMenuToggle, onSmoot
                 key={index}
                 href={link.href}
                 onClick={(e) => onSmoothScroll(e, link.href)}
-                className="text-sm font-medium text-white/80 transition-colors hover:text-white underline-offset-4 hover:underline"
+                className="text-sm font-medium text-white/90 transition-colors hover:text-white underline-offset-4 hover:underline"
                 aria-label={`Navigate to ${link.text} section`}
               >
                 {link.text}
@@ -64,7 +64,7 @@ export function Header({ isScrolled, mobileMenuOpen, onMobileMenuToggle, onSmoot
                 key={index}
                 href={link.href}
                 onClick={(e) => onSmoothScroll(e, link.href)}
-                className="text-sm font-medium text-white/80 transition-colors hover:text-white py-2 underline-offset-4 hover:underline"
+                className="text-sm font-medium text-white/90 transition-colors hover:text-white py-2 underline-offset-4 hover:underline"
                 aria-label={`Navigate to ${link.text} section`}
               >
                 {link.text}

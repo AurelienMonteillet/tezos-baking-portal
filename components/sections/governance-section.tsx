@@ -49,7 +49,7 @@ export function GovernanceSection() {
                   <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-brand-blue-600 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="text-lg md:text-xl font-semibold text-white-900 mb-1 md:mb-2">{step.title}</h3>
-                    <p className="text-sm md:text-base text-white-600 leading-relaxed">{step.description}</p>
+                    <p className="text-sm md:text-base text-white-700 leading-relaxed">{step.description}</p>
                   </div>
                 </div>
               ))}

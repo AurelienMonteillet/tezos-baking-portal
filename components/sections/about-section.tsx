@@ -41,7 +41,7 @@ export function AboutSection() {
                     <h3 className="text-lg md:text-xl font-semibold text-white-900 mb-1 md:mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-sm md:text-base text-white-600 leading-relaxed">
+                    <p className="text-sm md:text-base text-white-700 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
