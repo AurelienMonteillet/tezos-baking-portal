@@ -6,6 +6,7 @@ export const footerContent = {
   githubText: "Open source on",
   githubLink: "https://github.com/AurelienMonteillet/tezos-baking-portal", 
   links: [
+    { text: "Baker Stats", href: "/statistics" },
     { text: "Terms of service", href: "#terms" },
     { text: "Privacy", href: "#privacy" },
     { text: "Contact", href: "#contact" },

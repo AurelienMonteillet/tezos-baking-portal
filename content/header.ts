@@ -8,6 +8,7 @@ export const headerContent = {
     { text: "Governance", href: "#governance" },
     { text: "Tools", href: "#tools" },
     { text: "Docs", href: "#docs" },
+    { text: "Baker Stats", href: "/statistics" },
   ],
 }
 

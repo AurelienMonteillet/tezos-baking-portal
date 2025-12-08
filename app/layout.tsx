@@ -141,7 +141,7 @@ export default function RootLayout({
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"}/statistics?q={search_term_string}`,
+                  urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"}/?q={search_term_string}`,
                 },
                 "query-input": "required name=search_term_string",
               },
