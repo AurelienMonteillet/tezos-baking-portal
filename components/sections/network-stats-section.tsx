@@ -47,17 +47,18 @@ export function NetworkStatsSection({
       <Image
         src={networkStatsContent.images.background}
         alt=""
-        width={1920}
-        height={1080}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
-        aria-hidden="true"
+        fill
         priority
+        quality={80}
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
+        sizes="100vw"
+        aria-hidden="true"
       />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-5xl font-bold mb-6 text-white-900 text-balance">{networkStatsContent.title}</h2>
-          <p className="text-white-800 text-base sm:text-lg leading-relaxed px-4">
+          <p className="text-white-900 text-base sm:text-lg leading-relaxed px-4">
             {networkStatsContent.description}
           </p>
         </div>
@@ -125,7 +126,7 @@ export function NetworkStatsSection({
                       </div>
                     </div>
                     <div className="text-center mt-2">
-                      <p className="text-white-700/80 text-[10px] sm:text-xs font-light">
+                      <p className="text-white-800 text-[10px] sm:text-xs font-light">
                         APY data provided by{" "}
                         <a
                           href="https://tez.cool"

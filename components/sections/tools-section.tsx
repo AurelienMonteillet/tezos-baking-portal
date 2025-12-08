@@ -25,7 +25,7 @@ export function ToolsSection() {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center space-y-4 text-center mb-8 sm:mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white-900 text-balance">{toolsContent.title}</h2>
-          <p className="max-w-[900px] text-white-800 text-base sm:text-lg leading-relaxed px-4">
+          <p className="max-w-[900px] text-white-900 text-base sm:text-lg leading-relaxed px-4">
             {toolsContent.description}
           </p>
         </div>

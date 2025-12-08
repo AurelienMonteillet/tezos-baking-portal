@@ -26,7 +26,7 @@ export function AboutSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-white-900 text-balance">
             {aboutContent.title}
           </h2>
-          <p className="text-white-800 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-4">
+          <p className="text-white-900 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-4">
             {aboutContent.description}
           </p>
         </div>

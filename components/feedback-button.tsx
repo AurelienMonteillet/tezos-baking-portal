@@ -109,7 +109,7 @@ export function FeedbackButton() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(false)}
-                className="text-white-600 hover:text-white-900 hover:bg-black-600"
+                className="text-white-700 hover:text-white-900 hover:bg-black-600"
                 aria-label="Close modal"
               >
                 <X className="h-5 w-5" />

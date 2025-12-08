@@ -15,23 +15,25 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, lazy, Suspense } from "react"
 import { useNetworkStats, useBakersStats, useDataPreloader } from "@/hooks/use-tzkt-data-cached"
 
-// Section components
+// Critical sections - loaded immediately
 import {
   Header,
   HeroSection,
   NetworkStatsSection,
-  AboutSection,
-  GetStartedSection,
-  GovernanceSection,
-  ToolsSection,
-  DocumentationSection,
-  CTASection,
   Footer,
   ScrollToTopButton,
 } from "@/components/sections"
+
+// Non-critical sections - lazy loaded for better mobile performance
+const AboutSection = lazy(() => import("@/components/sections/about-section").then(m => ({ default: m.AboutSection })))
+const GetStartedSection = lazy(() => import("@/components/sections/get-started-section").then(m => ({ default: m.GetStartedSection })))
+const GovernanceSection = lazy(() => import("@/components/sections/governance-section").then(m => ({ default: m.GovernanceSection })))
+const ToolsSection = lazy(() => import("@/components/sections/tools-section").then(m => ({ default: m.ToolsSection })))
+const DocumentationSection = lazy(() => import("@/components/sections/documentation-section").then(m => ({ default: m.DocumentationSection })))
+const CTASection = lazy(() => import("@/components/sections/cta-section").then(m => ({ default: m.CTASection })))
 
 export default function Home() {
   // Fetch network statistics with caching
@@ -60,12 +62,20 @@ export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   // Handle sticky header and scroll-to-top button on scroll
+  // Throttled for better mobile performance
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-      setShowScrollTop(window.scrollY > 400)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20)
+          setShowScrollTop(window.scrollY > 400)
+          ticking = false
+        })
+        ticking = true
+      }
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -121,12 +131,24 @@ export default function Home() {
           refreshNetwork={refreshNetwork}
           refreshBakers={refreshBakers}
         />
-        <AboutSection />
-        <GetStartedSection />
-        <GovernanceSection />
-        <ToolsSection />
-        <DocumentationSection />
-        <CTASection />
+        <Suspense fallback={null}>
+          <AboutSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <GetStartedSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <GovernanceSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ToolsSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <DocumentationSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CTASection />
+        </Suspense>
       </main>
 
       <Footer />

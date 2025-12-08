@@ -20,8 +20,11 @@ export function HeroSection() {
           alt=""
           fill
           priority
+          fetchPriority="high"
           className="absolute top-0 right-0 w-full h-full object-cover object-top-right opacity-70"
           style={{ maxWidth: "100%", transform: "scale(1.2)" }}
+          sizes="100vw"
+          quality={75}
           aria-hidden="true"
         />
       </div>
@@ -31,7 +34,7 @@ export function HeroSection() {
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white-900 break-words">
               {heroContent.title}
             </h1>
-            <p className="max-w-[600px] text-sm sm:text-base md:text-lg text-white-800 leading-relaxed">
+            <p className="max-w-[600px] text-sm sm:text-base md:text-lg text-white-900 leading-relaxed">
               {heroContent.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -57,8 +60,11 @@ export function HeroSection() {
                 src={heroContent.images.illustration}
                 alt="Tezos Baking Portal - Comprehensive resource for baking"
                 fill
+                priority
+                fetchPriority="high"
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={80}
               />
             </div>
           </div>

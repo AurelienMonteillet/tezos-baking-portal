@@ -21,8 +21,11 @@ export function GetStartedSection() {
           src={getStartedContent.images.background}
           alt=""
           fill
+          priority
+          quality={80}
           className="absolute bottom-0 right-0 w-full h-full object-cover object-bottom-right opacity-70"
           style={{ maxWidth: "100%", transform: "scale(1.2)" }}
+          sizes="100vw"
           aria-hidden="true"
         />
       </div>
@@ -31,7 +34,7 @@ export function GetStartedSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white-900 text-balance px-4">
             {getStartedContent.title}
           </h2>
-          <p className="max-w-[900px] text-white-800 text-sm sm:text-base md:text-lg leading-relaxed px-4">
+          <p className="max-w-[900px] text-white-900 text-sm sm:text-base md:text-lg leading-relaxed px-4">
             {getStartedContent.description}
           </p>
         </div>
