@@ -58,6 +58,6 @@ yarn.lock
 # Local scripts (not for production)
 scripts/
 
-# Documentation files (local only)
-SEO.md
+# Personal documentation files (local only)
+docs/personal/
 
