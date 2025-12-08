@@ -14,6 +14,7 @@ import type { Metadata } from "next"
 import { Outfit, Roboto } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { FeedbackButton } from "@/components/feedback-button"
 
 // Configure Outfit font (headings and UI elements)
 const outfit = Outfit({
@@ -71,6 +72,8 @@ export default function RootLayout({
         {/* Theme provider enables dark mode support */}
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {children}
+          {/* Floating feedback button - visible on all pages */}
+          <FeedbackButton />
         </ThemeProvider>
       </body>
     </html>
