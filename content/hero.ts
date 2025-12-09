@@ -11,6 +11,6 @@ export const heroContent = {
   },
   images: {
     background: "/images/gradient-bg-top-right.webp",
-    illustration: "/tezos-baking-illustration-with-people-collaboratin.jpg",
+    illustration: "/tezos-baking-illustration-with-people-collaboratin.webp",
   },
 }

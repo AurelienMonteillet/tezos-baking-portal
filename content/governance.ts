@@ -27,6 +27,6 @@ export const governanceContent = {
   },
   images: {
     background: "/images/gradient-bg-bottom-left.webp",
-    illustration: "/tezos-baking-illustration-with-people-collaboratin.jpg",
+    illustration: "/tezos-governance-illustration.webp",
   },
 }
