@@ -61,7 +61,7 @@ export const getStartedContent = {
       title: "Monitoring",
       description: "Keep track of your baker's performance",
       items: [
-        "Garfazos monitoring setup",
+        "Grafazos monitoring setup",
         "Prometheus & Grafana dashboards",
         "Alert configuration",
         "Performance optimization",
@@ -74,10 +74,10 @@ export const getStartedContent = {
       title: "Testnets",
       description: "Practice on testnets before mainnet",
       items: [
-        "Ghostnet setup",
+        "Ghostnet / Shadownnet setup",
         "Obtaining testnet tez",
         "Testing protocol upgrades",
-        "Participating in testnet voting",
+        "Playing with the protocol",
       ],
       linkText: "View testnet guide",
       href: "https://teztnets.com/",

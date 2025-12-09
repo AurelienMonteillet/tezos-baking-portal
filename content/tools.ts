@@ -1,4 +1,4 @@
-import { Terminal, Layers, LineChart, Wallet, Activity, Database } from "lucide-react"
+import { Terminal, Layers, LineChart, Wallet, Activity, Database, Search, Bell, Coins } from "lucide-react"
 
 export const toolsContent = {
   title: "Useful Tools for Baking",
@@ -45,6 +45,27 @@ export const toolsContent = {
       description: "Advanced Tezos block explorer with detailed baking statistics and API.",
       linkText: "View explorer",
       href: "https://tzkt.io",
+    },
+    {
+      icon: Search,
+      title: "TzStats",
+      description: "Block explorer for Tezos with comprehensive network analytics and statistics.",
+      linkText: "Visit explorer",
+      href: "https://tzstats.com/",
+    },
+    {
+      icon: Bell,
+      title: "Tezos Notifier Bot",
+      description: "Telegram bot that notifies bakers about transactions and other blockchain events.",
+      linkText: "Open bot",
+      href: "https://t.me/TezosNotifierBot",
+    },
+    {
+      icon: Coins,
+      title: "Stake Tezos",
+      description: "User-friendly interface to stake Tez and delegate to bakers on the Tezos network.",
+      linkText: "Stake now",
+      href: "https://stake.tezos.com/",
     },
   ],
   images: {
