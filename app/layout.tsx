@@ -71,9 +71,9 @@ export const metadata: Metadata = {
     description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
     images: [
       {
-        url: "/tezos-logo.png",
-        width: 1200,
-        height: 630,
+        url: "/tezos-baking-portal-logo.svg",
+        width: 191,
+        height: 32,
         alt: "Tezos Baking Portal",
       },
     ],
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tezos Baking Portal",
     description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
-    images: ["/tezos-logo.png"],
+    images: ["/tezos-baking-portal-logo.svg"],
   },
   robots: {
     index: true,
@@ -97,12 +97,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/tezos-logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/tezos-logomark.svg", sizes: "32x32", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/tezos-logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/tezos-logomark.svg", sizes: "32x32", type: "image/svg+xml" },
     ],
-    shortcut: "/tezos-logo.png",
+    shortcut: "/tezos-logomark.svg",
   },
 }
 
@@ -123,9 +123,9 @@ export default function RootLayout({
         
         {/* Favicon - Next.js 14 automatically serves app/icon.png */}
         {/* Additional favicon links for better browser compatibility */}
-        <link rel="icon" type="image/png" sizes="32x32" href="/tezos-logo.png" />
-        <link rel="shortcut icon" href="/tezos-logo.png" />
-        <link rel="apple-touch-icon" sizes="32x32" href="/tezos-logo.png" />
+        <link rel="icon" type="image/svg+xml" sizes="32x32" href="/tezos-logomark.svg" />
+        <link rel="shortcut icon" href="/tezos-logomark.svg" />
+        <link rel="apple-touch-icon" sizes="32x32" href="/tezos-logomark.svg" />
         
         {/* Structured Data for SEO */}
         <script

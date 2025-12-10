@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Tezos Baking Portal](public/tezos-logo.png)
+![Tezos Baking Portal](public/tezos-baking-portal-logo.svg)
 
 **Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.**
 
@@ -253,7 +253,8 @@ tezos-baking-portal/
 ├── public/                       # Static assets
 │   ├── images/                  # Images and illustrations
 │   ├── fonts/                   # Custom fonts
-│   └── tezos-logo.png
+│   ├── tezos-baking-portal-logo.svg  # Complete logo (logo + text)
+│   └── tezos-logomark.svg       # Logo mark only
 ├── next.config.mjs              # Next.js configuration
 ├── tailwind.config.ts           # Tailwind configuration
 ├── tsconfig.json                # TypeScript configuration
