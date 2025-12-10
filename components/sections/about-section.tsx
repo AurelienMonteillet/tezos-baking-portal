@@ -17,6 +17,8 @@ export function AboutSection() {
         alt=""
         width={1920}
         height={1080}
+        quality={70}
+        loading="lazy"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
         aria-hidden="true"
       />

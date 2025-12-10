@@ -24,7 +24,7 @@ export function HeroSection() {
           className="absolute top-0 right-0 w-full h-full object-cover object-top-right opacity-70"
           style={{ maxWidth: "100%", transform: "scale(1.2)" }}
           sizes="100vw"
-          quality={75}
+          quality={70}
           aria-hidden="true"
         />
       </div>

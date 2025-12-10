@@ -49,7 +49,7 @@ export function NetworkStatsSection({
         alt=""
         fill
         priority
-        quality={80}
+        quality={70}
         className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
         sizes="100vw"
         aria-hidden="true"

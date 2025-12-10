@@ -72,7 +72,8 @@ export function useNetworkStats() {
   }, [])
 
   useEffect(() => {
-    fetchData()
+    // Force refresh on mount (page load) to get fresh data
+    fetchData(true)
 
     // Auto-refresh every 5 minutes
     const interval = setInterval(() => fetchData(), 5 * 60 * 1000)
@@ -281,7 +282,8 @@ export function useBakersStats() {
   }, [])
 
   useEffect(() => {
-    fetchStats()
+    // Force refresh on mount (page load) to get fresh data
+    fetchStats(true)
 
     // Auto-refresh every 15 minutes
     const interval = setInterval(() => fetchStats(), 15 * 60 * 1000)

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     default: "Tezos Baking Portal",
     template: "%s | Tezos Baking Portal",
   },
-  description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards. Real-time network statistics, baker guides, and tools.",
+  description: "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides. Start baking Tezos (XTZ) today.",
   keywords: ["Tezos", "baking", "staking", "delegation", "blockchain", "cryptocurrency", "XTZ", "baker", "validator"],
   authors: [{ name: "Tezos Baking Portal" }],
   creator: "Tezos Community",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Tezos Baking Portal",
     title: "Tezos Baking Portal - Your Complete Baking Resource",
-    description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
+    description: "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
     images: [
       {
         url: "/tezos-baking-portal-logo.svg",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Tezos Baking Portal",
-    description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
+    description: "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
     images: ["/tezos-baking-portal-logo.svg"],
   },
   robots: {
@@ -131,33 +131,52 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Tezos Baking Portal",
-              description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
-              url: process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app",
-              potentialAction: {
-                "@type": "SearchAction",
-                target: {
-                  "@type": "EntryPoint",
-                  urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"}/?q={search_term_string}`,
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "Tezos Baking Portal",
+                description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
+                url: process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app",
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"}/?q={search_term_string}`,
+                  },
+                  "query-input": "required name=search_term_string",
                 },
-                "query-input": "required name=search_term_string",
               },
-            }),
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Tezos Baking Portal",
+                description: "Comprehensive resource for Tezos baking, staking, and delegation",
+                url: process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app",
+                logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"}/tezos-baking-portal-logo.svg`,
+                sameAs: [
+                  "https://github.com/AurelienMonteillet/tezos-baking-portal",
+                  "https://discord.com/invite/tezos",
+                  "https://tezos.stackexchange.com/",
+                  "https://forum.tezosagora.org/",
+                ],
+              },
+            ]),
           }}
         />
         {/* PostHog Analytics is loaded client-side after LCP via DeferredPostHog component to improve performance */}
         {/* Removed inline script to prevent render blocking - see DeferredPostHog component */}
         
-        {/* Preload LCP image for better performance */}
+        {/* Preload LCP image and critical fonts for better performance */}
         <link
           rel="preload"
           as="image"
           href="/images/gradient-bg-top-right.webp"
           type="image/webp"
         />
+        {/* Preconnect to Google Fonts for faster font loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased">
         {/* Theme provider enables dark mode support */}

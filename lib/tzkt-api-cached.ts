@@ -274,8 +274,15 @@ export async function getBakersStats(): Promise<{
  * Preload critical data into cache on app initialization
  * Fetches network stats, current cycle, and top bakers in parallel
  * Useful for improving initial page load performance
+ * 
+ * Note: This preloads data but hooks will force refresh on mount to ensure fresh data
  */
 export async function preloadCriticalData(): Promise<void> {
+  // Invalidate cache first to ensure fresh data on page load
+  invalidateNetworkCache()
+  cacheManager.invalidatePattern(`active_bakers_.*`)
+  cacheManager.invalidate("bakers_stats")
+  
   const promises = [
     cacheManager.preload(
       CacheKeys.networkStats(),

@@ -22,7 +22,7 @@ export function GetStartedSection() {
           alt=""
           fill
           priority
-          quality={80}
+          quality={70}
           className="absolute bottom-0 right-0 w-full h-full object-cover object-bottom-right opacity-70"
           style={{ maxWidth: "100%", transform: "scale(1.2)" }}
           sizes="100vw"
