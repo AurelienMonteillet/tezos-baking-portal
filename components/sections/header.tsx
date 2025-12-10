@@ -26,9 +26,8 @@ export function Header({ isScrolled, mobileMenuOpen, onMobileMenuToggle, onSmoot
       }`}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-8">
-        <Link href={headerContent.logoLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" aria-label="Tezos homepage">
-          <Image src={headerContent.logo} alt="Tezos logo" width={32} height={32} className="h-8 w-auto" priority />
-          <span className="font-heading text-lg font-semibold text-white">{headerContent.title}</span>
+        <Link href={headerContent.logoLink} target="_blank" rel="noopener noreferrer" className="flex items-center" aria-label="Tezos homepage">
+          <Image src={headerContent.logo} alt="Tezos Baking Portal" width={191} height={32} className="h-8 w-auto" priority />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

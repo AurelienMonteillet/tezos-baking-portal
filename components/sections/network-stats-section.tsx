@@ -146,14 +146,14 @@ export function NetworkStatsSection({
                 <Link href={networkStatsContent.stakingApy.buttons.historical.href} className="w-full sm:flex-1" target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="outline"
-                    className="w-full rounded-full border-white-600 text-white-900 bg-transparent hover:bg-black-600 hover:text-white-900"
+                    className="w-full rounded-full border-white-600 text-white-900 bg-transparent hover:bg-black-600 hover:text-white-900 cursor-pointer"
                     aria-label={networkStatsContent.stakingApy.buttons.historical.text}
                   >
                     {networkStatsContent.stakingApy.buttons.historical.text}
                   </Button>
                 </Link>
                 <Link href={networkStatsContent.stakingApy.buttons.bakerStats.href} className="w-full sm:flex-1" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full rounded-full bg-white-900 text-black-900 hover:bg-white-800" aria-label={networkStatsContent.stakingApy.buttons.bakerStats.text}>
+                  <Button className="w-full rounded-full bg-white-900 text-black-900 hover:bg-white-800 cursor-pointer" aria-label={networkStatsContent.stakingApy.buttons.bakerStats.text}>
                     {networkStatsContent.stakingApy.buttons.bakerStats.text}
                   </Button>
                 </Link>
@@ -215,7 +215,7 @@ export function NetworkStatsSection({
               </CardContent>
               <CardFooter className="flex flex-col sm:flex-row gap-3 p-4 sm:p-6">
                     <Link href={networkStatsContent.networkPerformance.link.href} className="w-full sm:flex-1" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full rounded-full bg-white-900 text-black-900 hover:bg-white-800 text-sm" aria-label={networkStatsContent.networkPerformance.link.text}>
+                      <Button className="w-full rounded-full bg-white-900 text-black-900 hover:bg-white-800 text-sm cursor-pointer" aria-label={networkStatsContent.networkPerformance.link.text}>
                         {networkStatsContent.networkPerformance.link.text}
                       </Button>
                     </Link>

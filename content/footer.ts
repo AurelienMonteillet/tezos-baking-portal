@@ -11,7 +11,7 @@ export const footerContent = {
     { text: "Contact", href: "#contact" },
   ],
   images: {
-    logo: "/tezos-logo.png",
+    logo: "/tezos-logomark.svg",
   },
   copyright: `© ${new Date().getFullYear()} Tezos Baking Portal. All rights reserved.`,
 }

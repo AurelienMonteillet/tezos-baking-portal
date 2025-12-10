@@ -27,7 +27,7 @@ export function CTASection() {
           </div>
 
           <div className="relative z-10 max-w-2xl">
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-normal text-white mb-3 sm:mb-4">
               {ctaContent.title}
             </h2>
             <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 sm:mb-8 leading-relaxed">

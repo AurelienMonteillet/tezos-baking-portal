@@ -64,3 +64,6 @@ docs/personal/
 # Cursor rules (personal configuration, not for team)
 .cursorrules
 
+# Logo source files (SVG sources, not for production)
+TBP logo SVGs/
+

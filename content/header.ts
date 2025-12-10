@@ -1,5 +1,5 @@
 export const headerContent = {
-  logo: "/tezos-logo.png",
+  logo: "/tezos-baking-portal-logo.svg",
   title: "Tezos Baking Portal",
   logoLink: "https://tezos.com/",
   navLinks: [

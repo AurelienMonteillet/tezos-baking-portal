@@ -31,7 +31,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="grid gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
           <div className="flex flex-col space-y-3 sm:space-y-4 md:space-y-6">
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white-900 break-words">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-normal tracking-tight text-white-900 break-words">
               {heroContent.title}
             </h1>
             <p className="max-w-[600px] text-sm sm:text-base md:text-lg text-white-900 leading-relaxed">
