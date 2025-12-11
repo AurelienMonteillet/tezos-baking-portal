@@ -61,24 +61,25 @@ export function ToolsSection() {
             return (
               <Card 
                 key={index} 
-                className={`bg-black-800 border-black-600 hover:border-brand-blue-600/50 transition-colors ${!isVisible ? 'hidden lg:block' : ''}`}
+                className={`bg-black-800 border-black-600 hover:border-brand-blue-600/50 transition-colors flex flex-col h-full gap-0 ${!isVisible ? 'hidden lg:block' : ''}`}
               >
-                <CardHeader>
+                <CardHeader className="pb-4">
                   <div className="p-3 w-12 h-12 rounded-lg bg-brand-blue-600/10 flex items-center justify-center mb-4">
                     <card.icon className="h-6 w-6 text-brand-blue-600" />
                   </div>
                   <CardTitle className="text-white-900">{card.title}</CardTitle>
                   <CardDescription className="text-white-700">{card.description}</CardDescription>
                 </CardHeader>
-                <CardFooter>
+                <CardContent className="flex-1" />
+                <CardFooter className="mt-auto pt-4 pb-0">
                   <Link
                     href={card.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-white-900 flex items-center hover:text-brand-blue-400 transition-colors underline-offset-4 hover:underline"
+                    className="inline-flex h-10 items-center justify-center rounded-full border border-brand-blue-600 bg-transparent text-brand-blue-400 px-4 font-heading font-normal text-sm leading-6 transition-all hover:bg-brand-blue-600/10 hover:text-brand-blue-300 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full"
                     aria-label={`Visit ${card.title}`}
                   >
-                    {card.linkText} <ExternalLink className="h-4 w-4 ml-1" />
+                    {card.linkText} <ExternalLink className="h-4 w-4 ml-2" />
                   </Link>
                 </CardFooter>
               </Card>

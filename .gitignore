@@ -67,3 +67,4 @@ docs/personal/
 # Logo source files (SVG sources, not for production)
 TBP logo SVGs/
 
+.aws-credentials

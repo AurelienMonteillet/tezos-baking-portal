@@ -8,7 +8,7 @@ export const aboutContent = {
     },
     {
       title: "Rewards",
-      description: "Bakers earn rewards for creating and attesting blocks, which are distributed to delegators and stakers.",
+      description: "Bakers earn rewards for creating and attesting blocks. Rewards are distributed to delegators and stakers.",
     },
     {
       title: "Requirements",

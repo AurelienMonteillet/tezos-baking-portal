@@ -65,10 +65,12 @@ export function GetStartedSection() {
               <CardFooter>
                 <Link
                   href={card.href}
-                  className="text-sm font-medium text-brand-blue-400 flex items-center hover:text-brand-blue-300 transition-colors underline-offset-4 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 items-center justify-center rounded-full border border-brand-blue-600 bg-transparent text-brand-blue-400 px-4 font-heading font-normal text-sm leading-6 transition-all hover:bg-brand-blue-600/10 hover:text-brand-blue-300 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full"
                   aria-label={`${card.linkText} - ${card.title}`}
                 >
-                  {card.linkText} <ChevronRight className="h-4 w-4 ml-1" />
+                  {card.linkText} <ChevronRight className="h-4 w-4 ml-2" />
                 </Link>
               </CardFooter>
             </Card>
@@ -78,7 +80,10 @@ export function GetStartedSection() {
         <div className="flex justify-center mt-8 md:mt-12 px-4">
           <Link
             href={getStartedContent.documentationButton.href}
-            className="inline-flex h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full sm:w-auto max-w-sm sm:max-w-none"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff]"
+            aria-label={getStartedContent.documentationButton.text}
           >
             {getStartedContent.documentationButton.text} <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
