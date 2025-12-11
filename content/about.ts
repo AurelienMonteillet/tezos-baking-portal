@@ -1,6 +1,6 @@
 export const aboutContent = {
   title: "What is Baking?",
-  description: "Baking is the process of validating transactions and adding new blocks to the Tezos blockchain. Bakers are rewarded with newly minted XTZ for their contribution to the network.",
+  description: "Baking is the process of validating transactions and adding new blocks to the Tezos blockchain. Bakers are rewarded with tez tokens for their contribution to the network.",
   features: [
     {
       title: "Consensus Mechanism",
@@ -12,7 +12,7 @@ export const aboutContent = {
     },
     {
       title: "Requirements",
-      description: "To become a baker, you need at least 6,000 XTZ and a reliable server setup with proper security measures.",
+      description: "To become a baker, you need at least 6,000 tez and a reliable server setup with proper security measures.",
     },
   ],
   button: {
