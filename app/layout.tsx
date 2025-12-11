@@ -137,7 +137,7 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 name: "Tezos Baking Portal",
-                description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
+                description: "Your comprehensive resource for Tezos baking — from setup to optimization, governance to rewards.",
                 url: process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com",
                 potentialAction: {
                   "@type": "SearchAction",
