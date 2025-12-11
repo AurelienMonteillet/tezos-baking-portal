@@ -40,14 +40,14 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href={heroContent.primaryButton.href}
-                className="inline-flex h-10 md:h-11 items-center justify-center rounded-full bg-white-900 text-black-900 px-5 sm:px-6 md:px-8 text-sm font-semibold shadow-lg transition-all hover:bg-white-800"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff]"
                 aria-label={heroContent.primaryButton.text}
               >
                 {heroContent.primaryButton.text}
               </Link>
               <Link
                 href={heroContent.secondaryButton.href}
-                className="inline-flex h-10 md:h-11 items-center justify-center rounded-full border-2 border-white-700 text-white-900 px-5 sm:px-6 md:px-8 text-sm font-semibold transition-all hover:bg-white-900/10"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-white-600 bg-transparent text-white-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900/10 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff]"
                 aria-label={heroContent.secondaryButton.text}
               >
                 {heroContent.secondaryButton.text}

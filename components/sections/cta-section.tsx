@@ -35,7 +35,7 @@ export function CTASection() {
             </p>
             <Link
               href={ctaContent.button.href}
-              className="inline-flex h-11 sm:h-12 items-center justify-center rounded-full bg-[#E0E0FF] text-black-900 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-xl transition-all hover:bg-white hover:scale-105"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff]"
               aria-label={ctaContent.button.text}
             >
               {ctaContent.button.text}

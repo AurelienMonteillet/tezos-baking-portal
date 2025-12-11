@@ -67,7 +67,7 @@ export function AboutSection() {
         <div className="flex justify-center mt-8 md:mt-12 px-4">
           <Link
             href={aboutContent.button.href}
-            className="inline-flex items-center justify-center rounded-full bg-white-900 text-black-900 px-6 md:px-8 py-2.5 md:py-3 text-sm font-semibold shadow-lg hover:bg-white-800 transition-all w-full sm:w-auto"
+            className="inline-flex h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full sm:w-auto"
           >
             {aboutContent.button.text}
           </Link>

@@ -2,8 +2,10 @@
  * Button Component
  * 
  * Primary interactive element with multiple variants and sizes
- * Supports different visual styles (default, outline, ghost, etc.)
- * Can be rendered as a child element using the asChild prop
+ * Based on Tezos Design System (Figma)
+ * - Font: GT Eesti Display Regular (font-normal)
+ * - Primary: white-700 background, black-900 text
+ * - Secondary (outline): transparent with white border
  */
 
 import * as React from 'react'
@@ -13,27 +15,35 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-heading font-normal transition-all cursor-pointer disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-6 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-[3px] focus-visible:ring-[#8aabff] focus-visible:ring-offset-1",
   {
     variants: {
       variant: {
+        // Tezos Primary Button: white-700 (rgba(255,255,255,0.8)) → hover: white
         default:
-          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
-        destructive:
-          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
+          'bg-white-700 text-black-900 hover:bg-white-900',
+        // Tezos Secondary/Outline Button: transparent with white border
         outline:
-          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
+          'border border-white-600 bg-transparent text-white-900 hover:bg-white-900/10',
+        // Destructive variant
+        destructive:
+          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20',
+        // Secondary variant
         secondary:
           'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
+        // Ghost variant
         ghost:
-          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
+          'hover:bg-accent hover:text-accent-foreground',
+        // Link variant
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
-        default: 'h-9 px-4 py-2 has-[>svg]:px-3',
-        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
-        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
-        icon: 'size-9',
+        // Tezos sizes from Figma: xs=32px, sm=40px, base=48px, lg=56px
+        xs: 'h-8 px-3 text-base leading-6',
+        sm: 'h-10 px-3 text-base leading-6',
+        default: 'h-12 px-5 text-lg leading-7',
+        lg: 'h-14 px-7 text-xl leading-7',
+        icon: 'size-12',
       },
     },
     defaultVariants: {
