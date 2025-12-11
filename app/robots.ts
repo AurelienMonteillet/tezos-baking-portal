@@ -6,7 +6,7 @@ import { MetadataRoute } from "next"
  * Tells search engines which pages they can or cannot access
  */
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"
   
   return {
     rules: [

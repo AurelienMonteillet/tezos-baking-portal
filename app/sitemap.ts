@@ -6,7 +6,7 @@ import { MetadataRoute } from "next"
  * Helps search engines discover and index all pages
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"
   
   return [
     {

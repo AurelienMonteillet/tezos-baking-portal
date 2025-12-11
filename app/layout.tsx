@@ -56,11 +56,11 @@ export const metadata: Metadata = {
   publisher: "Tezos Baking Portal",
   metadataBase: process.env.NEXT_PUBLIC_SITE_URL 
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : undefined,
+    : new URL("https://bakers.tezos.com"),
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL 
       ? `${process.env.NEXT_PUBLIC_SITE_URL}/`
-      : "https://baking-portal.vercel.app/",
+      : "https://bakers.tezos.com/",
   },
   openGraph: {
     type: "website",
@@ -120,6 +120,7 @@ export default function RootLayout({
       <head>
         {/* Google Search Console verification */}
         <meta name="google-site-verification" content="H8WGaQWNNKHdKrzh9TseVz6opGZlWwr0wK-c2Re0T5Q" />
+        <meta name="google-site-verification" content="pimXch41H7tmNw54yVujx8uqvnWNZ2LWufoxSnc_C9w" />
         
         {/* Favicon - Next.js 14 automatically serves app/icon.png */}
         {/* Additional favicon links for better browser compatibility */}
@@ -137,12 +138,12 @@ export default function RootLayout({
                 "@type": "WebSite",
                 name: "Tezos Baking Portal",
                 description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
-                url: process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app",
+                url: process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com",
                 potentialAction: {
                   "@type": "SearchAction",
                   target: {
                     "@type": "EntryPoint",
-                    urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"}/?q={search_term_string}`,
+                    urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"}/?q={search_term_string}`,
                   },
                   "query-input": "required name=search_term_string",
                 },
@@ -152,8 +153,8 @@ export default function RootLayout({
                 "@type": "Organization",
                 name: "Tezos Baking Portal",
                 description: "Comprehensive resource for Tezos baking, staking, and delegation",
-                url: process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app",
-                logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://baking-portal.vercel.app"}/tezos-baking-portal-logo.svg`,
+                url: process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com",
+                logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"}/tezos-baking-portal-logo.svg`,
                 sameAs: [
                   "https://github.com/AurelienMonteillet/tezos-baking-portal",
                   "https://discord.com/invite/tezos",

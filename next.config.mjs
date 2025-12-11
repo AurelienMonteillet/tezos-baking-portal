@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable static export for S3 deployment
+  output: 'export',
+  // Note: headers() are not applied in static export (warning is expected)
+  // Security headers will be configured in CloudFront distribution
+  // This is normal and not a problem - CloudFront handles headers
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: false, // Enable Next.js image optimization in production
+    unoptimized: true, // Required for static export (S3 doesn't support Next.js image optimization)
     formats: ['image/avif', 'image/webp'],
     // Optimized sizes for mobile-first approach
     deviceSizes: [375, 414, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],

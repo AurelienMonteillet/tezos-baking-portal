@@ -7,7 +7,9 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "test:links": "node scripts/test-links.js"
+    "test:links": "node scripts/test-links.js",
+    "deploy:staging": "bash scripts/deploy-s3.sh staging",
+    "deploy:prod": "bash scripts/deploy-s3.sh production"
   },
   "dependencies": {
     "@radix-ui/react-slot": "latest",

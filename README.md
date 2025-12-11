@@ -201,15 +201,35 @@ To update any text or link:
 
 ## 🚀 Deployment
 
-Deploy on **[Vercel](https://vercel.com)** (recommended - zero config, automatic deployments):
+This project is deployed on **AWS S3 + CloudFront**.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AurelienMonteillet/tezos-baking-portal)
+### Quick Deploy
 
-Or build for production:
 ```bash
-pnpm build
-pnpm start
+# Staging
+npm run deploy:staging
+
+# Production
+npm run deploy:prod
 ```
+
+### Prerequisites
+
+1. **AWS CLI installed** - [Install guide](https://aws.amazon.com/cli/)
+2. **AWS Credentials configured** - Set environment variables or run `aws configure`
+
+```bash
+export AWS_ACCESS_KEY_ID="AKIAZVZBOPN5T77KQ3C3"
+export AWS_SECRET_ACCESS_KEY="<your-secret-key>"
+export AWS_DEFAULT_REGION="us-east-1"
+```
+
+### Detailed Instructions
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete deployment guide.
+
+**Production URL**: https://bakers.tezos.com  
+**Staging URL**: https://next-bakers-tezos-com.tzstaging.com
 
 ---
 

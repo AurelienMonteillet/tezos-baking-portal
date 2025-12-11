@@ -21,6 +21,6 @@ export const aboutContent = {
   },
   images: {
     background: "/images/gradient-bg-bottom-left.webp",
-    illustration: "/tezos-baking-network-visualization-illustration.webp",
+    illustration: "/tezos-get-started-illustration.webp",
   },
 }
