@@ -1,10 +1,10 @@
 export const governanceContent = {
-  title: "Governance Overview",
-  description: "Tezos has an on-chain governance mechanism that allows the protocol to upgrade itself through a formal proposal process.",
+  title: "Governance",
+  description: "Tezos has an on-chain governance mechanism that allows bakers to propose and vote on upgrades to the protocol.",
   steps: [
     {
       title: "Proposal Period",
-      description: "Bakers can submit and upvote protocol upgrade proposals during this period.",
+      description: "Bakers submit and upvote protocol upgrade proposals.",
     },
     {
       title: "Exploration & Testing",
@@ -21,7 +21,7 @@ export const governanceContent = {
       href: "https://docs.tezos.com/architecture/governance",
     },
     secondary: {
-      text: "Visit Agora",
+      text: "Discuss proposals on Agora",
       href: "https://www.tezosagora.org/",
     },
   },
