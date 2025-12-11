@@ -3,12 +3,12 @@ export const documentationContent = {
   description: "Comprehensive guides and tutorials to help you become a successful baker.",
   sections: [
     {
-      title: "Official Documentation",
-      description: "Comprehensive guides from the Tezos team",
+      title: "Documentation",
+      description: "Comprehensive guides from Tezos developers and users",
       items: [
         {
           title: "Baking Documentation",
-          description: "Official documentation covering all aspects of baking on Tezos.",
+          description: "Documentation covering all aspects of baking on Tezos.",
           href: "https://octez.tezos.com/docs/introduction/howtoget.html",
         },
         {
