@@ -23,10 +23,10 @@ export const getStartedContent = {
       items: [
         "Install Octez software suite",
         "Configure node and baker",
-        "Set up DAL node (optional)",
+        "Run a DAL node",
       ],
       linkText: "View installation guide",
-      href: "https://docs.tezos.com/tutorials/join-dal-baker",
+      href: "https://octez.tezos.com/docs/introduction/howtoget.html",
     },
     {
       icon: Lock,

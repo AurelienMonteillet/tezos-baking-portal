@@ -7,19 +7,19 @@ export const documentationContent = {
       description: "Comprehensive guides from Tezos developers and users",
       items: [
         {
-          title: "Baking Documentation",
-          description: "Documentation covering all aspects of baking on Tezos.",
+          title: "Octez installation",
+          description: "Install and configure Octez (node, baker, and related services).",
           href: "https://octez.tezos.com/docs/introduction/howtoget.html",
+        },
+        {
+          title: "Baking tutorials",
+          description: "Step-by-step tutorials for baking and related tooling.",
+          href: "https://docs.tezos.com/tutorials",
         },
         {
           title: "Protocol Documentation",
           description: "Technical details about the current and upcoming Tezos protocols.",
           href: "https://tezos.gitlab.io/",
-        },
-        {
-          title: "DAL Documentation",
-          description: "Learn about the Data Availability Layer and how to participate.",
-          href: "https://docs.tezos.com/architecture/data-availability-layer",
         },
       ],
     },
@@ -27,11 +27,6 @@ export const documentationContent = {
       title: "Tutorials & Guides",
       description: "Step-by-step tutorials for bakers",
       items: [
-        {
-          title: "Baker Deployment Tutorial",
-          description: "Complete guide to deploying a baker from scratch.",
-          href: "https://docs.tezos.com/tutorials/join-dal-baker/run-node",
-        },
         {
           title: "Key Management Guide",
           description: "Best practices for securing your baker's keys.",

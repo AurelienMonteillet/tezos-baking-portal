@@ -65,12 +65,38 @@ export function ToolsSection() {
                 key={index} 
                 className={`bg-black-800 border-black-600 hover:border-brand-blue-600/50 transition-colors flex flex-col h-full gap-0 ${!isVisible ? 'hidden lg:block' : ''}`}
               >
-                <CardHeader className="pb-4">
-                  <div className="p-3 w-12 h-12 rounded-lg bg-brand-blue-600/10 flex items-center justify-center mb-4">
-                    <card.icon className="h-6 w-6 text-brand-blue-600" />
+                <CardHeader className="pb-4 text-left">
+                  {/* Icon + text aligned like Get Started cards */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-brand-blue-600/10 flex items-center justify-center flex-shrink-0">
+                      <card.icon className="h-6 w-6 text-brand-blue-600" />
+                    </div>
+
+                    {/* Keep headers visually consistent even when texts differ */}
+                    <div className="min-w-0 flex-1 text-left">
+                      <CardTitle
+                        className={[
+                          "text-white-900 font-heading font-normal",
+                          "text-xl leading-snug",
+                          // Cross-browser alignment: fixed height + hidden overflow
+                          // (multi-line clamp is not reliable in all browsers)
+                          "h-[3rem] overflow-hidden",
+                        ].join(" ")}
+                      >
+                        {card.title}
+                      </CardTitle>
+                      <CardDescription
+                        className={[
+                          "text-white-700 mt-1",
+                          "text-sm leading-relaxed",
+                          // Cross-browser alignment: fixed height + hidden overflow
+                          "h-[3.75rem] overflow-hidden",
+                        ].join(" ")}
+                      >
+                        {card.description}
+                      </CardDescription>
+                    </div>
                   </div>
-                  <CardTitle className="text-white-900 font-heading font-normal">{card.title}</CardTitle>
-                  <CardDescription className="text-white-700">{card.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1" />
                 <CardFooter className="mt-auto pt-4 pb-0">

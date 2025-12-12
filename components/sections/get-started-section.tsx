@@ -46,11 +46,15 @@ export function GetStartedSection() {
               className="bg-gradient-to-b from-[#111] to-[#181818] border border-white-50/10 shadow-xl flex flex-col hover:border-brand-blue-600/30 transition-all duration-300"
             >
               <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-brand-blue-600/10 flex items-center justify-center mb-4">
-                  <card.icon className="h-6 w-6 text-brand-blue-600" />
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-brand-blue-600/10 flex items-center justify-center flex-shrink-0">
+                    <card.icon className="h-6 w-6 text-brand-blue-600" />
+                  </div>
+                  <div className="min-w-0">
+                    <CardTitle className="text-white-900 text-xl font-heading font-normal">{card.title}</CardTitle>
+                    <CardDescription className="text-white-700 mt-1">{card.description}</CardDescription>
+                  </div>
                 </div>
-                <CardTitle className="text-white-900 text-xl font-heading font-normal">{card.title}</CardTitle>
-                <CardDescription className="text-white-700">{card.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-1">
                 <ul className="space-y-3">
