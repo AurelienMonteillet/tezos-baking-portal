@@ -57,8 +57,10 @@ export function NetworkStatsSection({
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-5xl font-bold mb-6 text-white-900 text-balance">{networkStatsContent.title}</h2>
-          <p className="text-white-900 text-base sm:text-lg leading-relaxed px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal mb-4 md:mb-6 text-white-900 text-balance">
+            {networkStatsContent.title}
+          </h2>
+          <p className="text-white-900 text-sm sm:text-base md:text-lg leading-relaxed px-4">
             {networkStatsContent.description}
           </p>
         </div>
@@ -69,7 +71,7 @@ export function NetworkStatsSection({
               <CardHeader className="p-4 sm:p-6">
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
-                    <CardTitle className="text-white-900 text-lg sm:text-xl break-words">
+                    <CardTitle className="text-white-900 text-lg sm:text-xl break-words font-heading font-normal">
                       {networkStatsContent.stakingApy.title}
                     </CardTitle>
                     <CardDescription className="text-white-700 mt-1 text-sm sm:text-base">
@@ -164,7 +166,7 @@ export function NetworkStatsSection({
               <CardHeader className="p-4 sm:p-6">
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
-                    <CardTitle className="text-white-900 text-lg sm:text-xl break-words">
+                    <CardTitle className="text-white-900 text-lg sm:text-xl break-words font-heading font-normal">
                       {networkStatsContent.networkPerformance.title}
                     </CardTitle>
                     <CardDescription className="text-white-700 mt-1 text-sm sm:text-base">

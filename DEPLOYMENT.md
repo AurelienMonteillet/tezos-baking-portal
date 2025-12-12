@@ -15,16 +15,32 @@ This project is deployed on AWS S3 with CloudFront distribution.
 
 2. **AWS Credentials configured**
    
-   You have two options:
+   You have three options:
 
-   **Option A: Environment variables (recommended for CI/CD)**
+   **Option A: AWS CLI Profiles (recommended)**
    ```bash
-   export AWS_ACCESS_KEY_ID="AKIAZVZBOPN5T77KQ3C3"
-   export AWS_SECRET_ACCESS_KEY="<your-secret-key>"
-   export AWS_DEFAULT_REGION="us-east-1"
+   # Setup profiles for both environments
+   bash scripts/setup-aws-profiles.sh
+   
+   # Then use profiles when deploying
+   AWS_PROFILE=staging npm run deploy:staging
+   AWS_PROFILE=production npm run deploy:prod
    ```
 
-   **Option B: AWS CLI configure**
+   **Option B: Environment variables**
+   ```bash
+   # For staging
+   export AWS_ACCESS_KEY_ID="AKIAZVZBOPN54WIRZGWN"
+   export AWS_SECRET_ACCESS_KEY="<staging-secret-key>"
+   npm run deploy:staging
+   
+   # For production
+   export AWS_ACCESS_KEY_ID="AKIAZVZBOPN5T77KQ3C3"
+   export AWS_SECRET_ACCESS_KEY="<prod-secret-key>"
+   npm run deploy:prod
+   ```
+
+   **Option C: Default AWS credentials (single environment)**
    ```bash
    aws configure
    # Enter your credentials when prompted
@@ -35,22 +51,34 @@ This project is deployed on AWS S3 with CloudFront distribution.
 ### Staging Deployment
 
 ```bash
+# Using AWS profile (recommended)
+AWS_PROFILE=staging npm run deploy:staging
+
+# Or with environment variables
+export AWS_ACCESS_KEY_ID="AKIAZVZBOPN54WIRZGWN"
+export AWS_SECRET_ACCESS_KEY="<staging-secret-key>"
 npm run deploy:staging
 ```
 
-Deploys to: `s3://next-bakers-tezos-com.tzstaging.com/`
+Deploys to: `s3://site-stage.next-bakers-tezos-com.tzstaging.com/`
 URL: https://next-bakers-tezos-com.tzstaging.com
 
 ### Production Deployment
 
 ```bash
+# Using AWS profile (recommended)
+AWS_PROFILE=production npm run deploy:prod
+
+# Or with environment variables
+export AWS_ACCESS_KEY_ID="AKIAZVZBOPN5T77KQ3C3"
+export AWS_SECRET_ACCESS_KEY="<prod-secret-key>"
 npm run deploy:prod
 ```
 
 Deploys to: `s3://site-prod.bakers.tezos.com/`
 URL: https://bakers.tezos.com
 
-**Note:** Production deployment automatically invalidates CloudFront cache.
+**Note:** Both staging and production deployments automatically invalidate CloudFront cache.
 
 ## Manual Deployment Steps
 
@@ -81,12 +109,14 @@ If you prefer to deploy manually:
 ## S3 Bucket Configuration
 
 - **Production**: `s3://site-prod.bakers.tezos.com/`
-- **Staging**: `s3://next-bakers-tezos-com.tzstaging.com/`
+- **Staging**: `s3://site-stage.next-bakers-tezos-com.tzstaging.com/`
 
 ## CloudFront Distribution
 
-- **Distribution ID**: `E1VVV2BAWH2CSJ`
-- **Domain**: `bakers.tezos.com`
+- **Production Distribution ID**: `E1VVV2BAWH2CSJ`
+- **Production Domain**: `bakers.tezos.com`
+- **Staging Distribution ID**: `E35STOX7A8Y4HT`
+- **Staging Domain**: `next-bakers-tezos-com.tzstaging.com`
 
 ## Important Notes
 

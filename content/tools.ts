@@ -7,7 +7,7 @@ export const toolsContent = {
     {
       icon: Layers,
       title: "TezBake (BakeBuddy)",
-      description: "Easy to use Tezos baking software for both novices and advanced users.",
+      description: "Easy to use Tezos baking software for both beginners and experts.",
       linkText: "View tool",
       href: "https://www.bakebuddy.xyz/",
     },

@@ -1,7 +1,7 @@
 import { Server, Terminal, Lock, Target, TrendingUp, Globe } from "lucide-react"
 
 export const getStartedContent = {
-  title: "How to get started",
+  title: "Getting Started",
   description: "Everything you need to set up and run your own Tezos baker.",
   cards: [
     {
@@ -9,10 +9,9 @@ export const getStartedContent = {
       title: "Hardware Setup",
       description: "Recommended specifications and configurations",
       items: [
-        "Minimum 8GB RAM, 4 CPU cores",
-        "100GB+ SSD storage",
-        "Stable internet connection (10+ Mbps)",
-        "Uninterruptible power supply",
+        "Minimum 16GB RAM (swap included), 3 CPU cores",
+        "100GB SSD storage",
+        "Low-latency reliable internet connection",
       ],
       linkText: "View hardware guide",
       href: "https://octez.tezos.com/docs/releases/version-23.html#minimal-hardware-specifications", // TODO: Update to the latest version
@@ -22,13 +21,12 @@ export const getStartedContent = {
       title: "Software Installation",
       description: "Step-by-step installation process",
       items: [
-        "Install the Octez software suite",
-        "Set up baking and consensus keys",
-        "Configure node, DAL node, and baker",
-        "Deploy monitoring tools",
+        "Install Octez software suite",
+        "Configure node and baker",
+        "Set up DAL node (optional)",
       ],
       linkText: "View installation guide",
-      href: "https://docs.tezos.com/tutorials/join-dal-baker/run-node",
+      href: "https://docs.tezos.com/tutorials/join-dal-baker",
     },
     {
       icon: Lock,
@@ -80,7 +78,7 @@ export const getStartedContent = {
         "Playing with the protocol",
       ],
       linkText: "View testnet guide",
-      href: "https://teztnets.com/",
+      href: "https://docs.tezos.com/developing/testnets",
     },
   ],
   documentationButton: {

@@ -97,12 +97,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      // Prefer PNG for broad favicon support across browsers
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      // Keep SVG as a fallback for browsers that support it
       { url: "/tezos-logomark.svg", sizes: "32x32", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/tezos-logomark.svg", sizes: "32x32", type: "image/svg+xml" },
+      // Apple Touch Icon: PNG is the most reliable format
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: "/tezos-logomark.svg",
+    shortcut: "/icon.png",
   },
 }
 
@@ -122,11 +126,11 @@ export default function RootLayout({
         <meta name="google-site-verification" content="H8WGaQWNNKHdKrzh9TseVz6opGZlWwr0wK-c2Re0T5Q" />
         <meta name="google-site-verification" content="pimXch41H7tmNw54yVujx8uqvnWNZ2LWufoxSnc_C9w" />
         
-        {/* Favicon - Next.js 14 automatically serves app/icon.png */}
-        {/* Additional favicon links for better browser compatibility */}
+        {/* Favicon - prefer PNG for broad browser support; keep SVG as fallback */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
         <link rel="icon" type="image/svg+xml" sizes="32x32" href="/tezos-logomark.svg" />
-        <link rel="shortcut icon" href="/tezos-logomark.svg" />
-        <link rel="apple-touch-icon" sizes="32x32" href="/tezos-logomark.svg" />
+        <link rel="shortcut icon" type="image/png" href="/icon.png" />
+        <link rel="apple-touch-icon" sizes="32x32" href="/icon.png" />
         
         {/* Structured Data for SEO */}
         <script

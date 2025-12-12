@@ -23,7 +23,7 @@ export function GovernanceSection() {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-white-900 text-balance">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal mb-4 md:mb-6 text-white-900 text-balance">
             {governanceContent.title}
           </h2>
           <p className="text-white-900 text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-4">
@@ -50,7 +50,7 @@ export function GovernanceSection() {
                 <div key={index} className="flex gap-2 md:gap-3">
                   <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-brand-blue-600 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white-900 mb-1 md:mb-2">{step.title}</h3>
+                    <h3 className="text-lg md:text-xl font-heading font-normal text-white-900 mb-1 md:mb-2">{step.title}</h3>
                     <p className="text-sm md:text-base text-white-700 leading-relaxed">{step.description}</p>
                   </div>
                 </div>

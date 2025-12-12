@@ -4,7 +4,7 @@ export const aboutContent = {
   features: [
     {
       title: "Rewards",
-      description: "Bakers earn rewards for creating and attesting blocks. They automatically share these rewards with stakers who delegate their tez tokens to the baker.",
+      description: "Bakers earn rewards for creating and attesting blocks. Rewards are distributed to delegators and stakers.",
     },
     {
       title: "Requirements",
