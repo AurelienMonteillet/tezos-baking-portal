@@ -12,11 +12,6 @@ export const documentationContent = {
           href: "https://octez.tezos.com/docs/introduction/howtoget.html",
         },
         {
-          title: "Baking tutorials",
-          description: "Step-by-step tutorials for baking and related tooling.",
-          href: "https://docs.tezos.com/tutorials",
-        },
-        {
           title: "Protocol Documentation",
           description: "Technical details about the current and upcoming Tezos protocols.",
           href: "https://tezos.gitlab.io/",
@@ -27,6 +22,11 @@ export const documentationContent = {
       title: "Tutorials & Guides",
       description: "Step-by-step tutorials for bakers",
       items: [
+        {
+          title: "Baking tutorials",
+          description: "Step-by-step tutorials for baking and related tooling.",
+          href: "https://docs.tezos.com/tutorials/join-dal-baker",
+        },
         {
           title: "Key Management Guide",
           description: "Best practices for securing your baker's keys.",
