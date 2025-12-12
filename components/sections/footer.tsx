@@ -48,7 +48,7 @@ export function Footer() {
 
             {/* Column 2: Community */}
             <div className="flex flex-col gap-3">
-              <h3 className="text-sm font-semibold text-white-900 mb-1">Community</h3>
+              <h3 className="text-sm font-heading font-normal text-white-900 mb-1">Community</h3>
               <div className="flex flex-col gap-2">
                 {footerContent.communityLinks.map((link, index) => (
                   <Link
@@ -67,7 +67,7 @@ export function Footer() {
 
             {/* Column 3: Legal */}
             <div className="flex flex-col gap-3">
-              <h3 className="text-sm font-semibold text-white-900 mb-1">Legal</h3>
+              <h3 className="text-sm font-heading font-normal text-white-900 mb-1">Legal</h3>
               <div className="flex flex-col gap-2">
                 {footerContent.links.map((link, index) => (
                   <Link
@@ -86,7 +86,7 @@ export function Footer() {
 
             {/* Column 4: Source Code */}
             <div className="flex flex-col gap-3">
-              <h3 className="text-sm font-semibold text-white-900 mb-1">Source Code</h3>
+              <h3 className="text-sm font-heading font-normal text-white-900 mb-1">Source Code</h3>
               <Link
                 href={footerContent.githubLink}
                 target="_blank"

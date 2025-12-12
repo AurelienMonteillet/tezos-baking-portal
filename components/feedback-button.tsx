@@ -102,7 +102,7 @@ export function FeedbackButton() {
           >
             {/* Modal Header */}
             <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/10 flex-shrink-0">
-              <h2 className="text-xl sm:text-2xl font-semibold text-white-900">
+              <h2 className="text-xl sm:text-2xl font-heading font-normal text-white-900">
                 Share your feedback
               </h2>
               <Button

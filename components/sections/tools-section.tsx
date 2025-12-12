@@ -49,8 +49,10 @@ export function ToolsSection() {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="flex flex-col items-center space-y-4 text-center mb-8 sm:mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white-900 text-balance">{toolsContent.title}</h2>
-          <p className="max-w-[900px] text-white-900 text-base sm:text-lg leading-relaxed px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal text-white-900 text-balance">
+            {toolsContent.title}
+          </h2>
+          <p className="max-w-[900px] text-white-900 text-sm sm:text-base md:text-lg leading-relaxed px-4">
             {toolsContent.description}
           </p>
         </div>
@@ -67,7 +69,7 @@ export function ToolsSection() {
                   <div className="p-3 w-12 h-12 rounded-lg bg-brand-blue-600/10 flex items-center justify-center mb-4">
                     <card.icon className="h-6 w-6 text-brand-blue-600" />
                   </div>
-                  <CardTitle className="text-white-900">{card.title}</CardTitle>
+                  <CardTitle className="text-white-900 font-heading font-normal">{card.title}</CardTitle>
                   <CardDescription className="text-white-700">{card.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1" />
