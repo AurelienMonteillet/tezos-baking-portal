@@ -99,17 +99,19 @@ export function ToolsSection() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-1" />
-                <CardFooter className="mt-auto pt-4 pb-0">
-                  <Link
-                    href={card.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-10 items-center justify-center rounded-full border border-brand-blue-600 bg-transparent text-brand-blue-400 px-4 font-heading font-normal text-sm leading-6 transition-all hover:bg-brand-blue-600/10 hover:text-brand-blue-300 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full"
-                    aria-label={`Visit ${card.title}`}
-                  >
-                    {card.linkText} <ExternalLink className="h-4 w-4 ml-2" />
-                  </Link>
-                </CardFooter>
+                {card.linkText && (
+                  <CardFooter className="mt-auto pt-4 pb-0">
+                    <Link
+                      href={card.href}
+                      target={card.href !== "#" ? "_blank" : undefined}
+                      rel={card.href !== "#" ? "noopener noreferrer" : undefined}
+                      className="inline-flex h-10 items-center justify-center rounded-full border border-brand-blue-600 bg-transparent text-brand-blue-400 px-4 font-heading font-normal text-sm leading-6 transition-all hover:bg-brand-blue-600/10 hover:text-brand-blue-300 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full"
+                      aria-label={`Visit ${card.title}`}
+                    >
+                      {card.linkText} {card.href !== "#" && <ExternalLink className="h-4 w-4 ml-2" />}
+                    </Link>
+                  </CardFooter>
+                )}
               </Card>
             )
           })}

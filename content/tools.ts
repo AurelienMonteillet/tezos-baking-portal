@@ -1,4 +1,4 @@
-import { Terminal, Layers, LineChart, Wallet, Activity, Database, Search, Bell, Coins } from "lucide-react"
+import { Terminal, Layers, LineChart, Wallet, Activity, Database, Search, Bell, Coins, BarChart, Code, Plus } from "lucide-react"
 
 export const toolsContent = {
   title: "Useful Tools for Baking",
@@ -66,6 +66,27 @@ export const toolsContent = {
       description: "User-friendly interface to stake tez and delegate to bakers on the Tezos network.",
       linkText: "Stake now",
       href: "https://stake.tezos.com/",
+    },
+    {
+      icon: BarChart,
+      title: "Bake Around Find Out",
+      description: "Comprehensive performance analysis and insights for Tezos bakers.",
+      linkText: "Visit website",
+      href: "https://bafo.fafolab.xyz/",
+    },
+    {
+      icon: Code,
+      title: "Octez Client",
+      description: "The Octez command-line client is part of the Octez suite of tools for interacting with Tezos and running nodes.",
+      linkText: "View documentation",
+      href: "https://docs.tezos.com/developing/octez-client",
+    },
+    {
+      icon: Plus,
+      title: "More to come",
+      description: "Additional tools and resources will be added regularly to help you with your baking operations.",
+      linkText: "",
+      href: "#",
     },
   ],
   images: {
