@@ -4,7 +4,7 @@
 
 ![Tezos Baking Portal](public/tezos-baking-portal-logo.svg)
 
-**Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.**
+**Your comprehensive resource for Tezos baking — from setup to optimization, governance to rewards.**
 
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)

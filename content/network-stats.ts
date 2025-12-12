@@ -3,7 +3,7 @@ export const networkStatsContent = {
   description: "Current statistics and performance metrics for the Tezos network and baking operations.",
   stakingApy: {
     title: "Current APY",
-    description: "Estimated annual percentage yield for staking and delegating XTZ",
+    description: "Estimated annual percentage yield for staking and delegating tez (XTZ)",
     label: "Annual Yield",
     dataSource: {
       text: "tez.cool",

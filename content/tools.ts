@@ -63,7 +63,7 @@ export const toolsContent = {
     {
       icon: Coins,
       title: "Stake Tezos",
-      description: "User-friendly interface to stake Tez and delegate to bakers on the Tezos network.",
+      description: "User-friendly interface to stake tez and delegate to bakers on the Tezos network.",
       linkText: "Stake now",
       href: "https://stake.tezos.com/",
     },

@@ -33,10 +33,10 @@ export const getStartedContent = {
       title: "Key Management",
       description: "Secure your baker with proper key management",
       items: [
-        "Generate consensus & companion keys",
+        "Consensus & companion keys",
         "Hardware security modules (HSM)",
         "Cloud HSM/KMS with Signatory",
-        "Unikey signer setup",
+        "Unikey signers",
       ],
       linkText: "View key management guide",
       href: "https://octez.tezos.com/docs/user/key-management.html",
@@ -72,7 +72,7 @@ export const getStartedContent = {
       title: "Testnets",
       description: "Practice on testnets before mainnet",
       items: [
-        "Ghostnet / Shadownnet setup",
+        "Shadownnet setup",
         "Obtaining testnet tez",
         "Testing protocol upgrades",
         "Playing with the protocol",
@@ -82,7 +82,7 @@ export const getStartedContent = {
     },
   ],
   documentationButton: {
-    text: "Explore Full Documentation",
+    text: "Explore full Octez documentation",
     href: "https://octez.tezos.com/docs/",
   },
   images: {

@@ -6,7 +6,7 @@
  * - Real-time network statistics with caching
  * - Information about baking process and benefits
  * - Getting started guide with setup steps
- * - Governance overview
+ * - Governance
  * - Useful tools and resources
  * - Documentation links
  * 
