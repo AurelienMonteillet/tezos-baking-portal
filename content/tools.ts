@@ -77,14 +77,14 @@ export const toolsContent = {
     {
       icon: Code,
       title: "Octez Client",
-      description: "The Octez command-line client is part of the Octez suite of tools for interacting with Tezos and running nodes.",
+      description: "Command-line client for interacting with Tezos and running nodes.",
       linkText: "View documentation",
       href: "https://docs.tezos.com/developing/octez-client",
     },
     {
       icon: Plus,
       title: "More to come",
-      description: "Additional tools and resources will be added regularly to help you with your baking operations.",
+      description: "Additional tools and resources will be added regularly.",
       linkText: "",
       href: "#",
     },
