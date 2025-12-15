@@ -8,6 +8,7 @@
     "lint": "next lint",
     "start": "next start",
     "test:links": "node scripts/test-links.js",
+    "optimize:images": "node scripts/optimize-images.js",
     "deploy:staging": "bash scripts/deploy-s3.sh staging",
     "deploy:prod": "bash scripts/deploy-s3.sh production"
   },

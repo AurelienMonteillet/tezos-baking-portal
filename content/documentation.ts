@@ -9,12 +9,12 @@ export const documentationContent = {
         {
           title: "Octez installation",
           description: "Install and configure Octez (node, baker, and related services).",
-          href: "https://octez.tezos.com/docs/introduction/howtoget.html",
+          href: "https://docs.tezos.com/",
         },
         {
           title: "Protocol Documentation",
           description: "Technical details about the current and upcoming Tezos protocols.",
-          href: "https://tezos.gitlab.io/",
+          href: "https://octez.tezos.com/docs/",
         },
       ],
     },

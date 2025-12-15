@@ -17,9 +17,10 @@ export function AboutSection() {
         alt=""
         width={1920}
         height={1080}
-        quality={70}
+        quality={40}
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
+        sizes="100vw"
         aria-hidden="true"
       />
 

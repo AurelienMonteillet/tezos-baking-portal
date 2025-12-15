@@ -34,13 +34,22 @@ const TZKT_API_BASE = "https://api.tzkt.io"
  * @param endpoint - API endpoint path
  * @param cacheKey - Unique cache key
  * @param cacheStrategy - Caching strategy to use
+ * @param force - If true, bypass cache and force fresh fetch
  * @returns Cached or freshly fetched data
  */
 async function cachedTzktFetch<T>(
   endpoint: string,
   cacheKey: string,
   cacheStrategy: (typeof CacheStrategies)[keyof typeof CacheStrategies],
+  force = false,
 ): Promise<T> {
+  // If force is true, bypass cache completely
+  if (force) {
+    cacheManager.invalidate(cacheKey)
+    cacheManager.recordMiss()
+    return fetchAndCache<T>(endpoint, cacheKey, cacheStrategy)
+  }
+
   // Try to get from cache first
   const cached = cacheManager.get<T>(cacheKey, cacheStrategy)
 
@@ -94,27 +103,31 @@ async function fetchAndCache<T>(
 /**
  * Get current network statistics
  * Cached for 5 minutes with localStorage persistence
+ * @param force - If true, bypass cache and force fresh fetch
  * @returns Network statistics object
  */
-export async function getNetworkStats(): Promise<NetworkStats> {
+export async function getNetworkStats(force = false): Promise<NetworkStats> {
   return cachedTzktFetch<NetworkStats>(
     "/v1/statistics/current",
     CacheKeys.networkStats(),
     CacheStrategies.NETWORK_STATS,
+    force,
   )
 }
 
 /**
  * Get current cycle information
  * Cached for 5 minutes with localStorage persistence
+ * @param force - If true, bypass cache and force fresh fetch
  * @returns Current cycle object
  */
-export async function getCurrentCycle(): Promise<Cycle> {
+export async function getCurrentCycle(force = false): Promise<Cycle> {
   // TzKT API returns cycles in descending order by default, so [0] is the current/latest cycle
   const cycles = await cachedTzktFetch<Cycle[]>(
     "/v1/cycles?sort.desc=index&limit=1",
     CacheKeys.currentCycle(),
     CacheStrategies.NETWORK_STATS,
+    force,
   )
   return cycles[0]
 }
@@ -167,9 +180,10 @@ export async function getBakerRewards(address: string, limit = 10): Promise<Bake
  * Calculates total bakers, active bakers, total staking, and APY
  * APY is calculated from on-chain data without external APIs
  * Cached for 1 minute (no localStorage persistence)
+ * @param force - If true, bypass cache and force fresh fetch
  * @returns Object containing aggregated baker statistics
  */
-export async function getBakersStats(): Promise<{
+export async function getBakersStats(force = false): Promise<{
   totalBakers: number
   activeBakers: number
   totalStaking: number
@@ -178,21 +192,28 @@ export async function getBakersStats(): Promise<{
   delegationApy: number
 }> {
   const cacheKey = CacheKeys.bakersStats()
-  const cached = cacheManager.get<{
-    totalBakers: number
-    activeBakers: number
-    totalStaking: number
-    averageApy: number
-    stakingApy: number
-    delegationApy: number
-  }>(cacheKey, CacheStrategies.GLOBAL_STATS)
+  
+  // If force is true, bypass cache completely
+  if (force) {
+    cacheManager.invalidate(cacheKey)
+    cacheManager.recordMiss()
+  } else {
+    const cached = cacheManager.get<{
+      totalBakers: number
+      activeBakers: number
+      totalStaking: number
+      averageApy: number
+      stakingApy: number
+      delegationApy: number
+    }>(cacheKey, CacheStrategies.GLOBAL_STATS)
 
-  if (cached) {
-    cacheManager.recordHit()
-    return cached
+    if (cached) {
+      cacheManager.recordHit()
+      return cached
+    }
+
+    cacheManager.recordMiss()
   }
-
-  cacheManager.recordMiss()
 
   try {
     // ========== Step 1: Fetch APY data from tez.cool API ==========
@@ -223,13 +244,13 @@ export async function getBakersStats(): Promise<{
     }
     
     // ========== Step 2: Get network data from TzKT ==========
-    let totalStaking = 486200000000 // 486.2M XTZ in mutez (default)
-    let totalBakers = 412 // Default fallback
+    let totalStaking = 300149220000000 // 300,149,220 tez in mutez (default)
+    let totalBakers = 264 // Default fallback
     
     try {
       const [cycleData, statsData] = await Promise.all([
-        getCurrentCycle(),
-        getNetworkStats(),
+        getCurrentCycle(force),
+        getNetworkStats(force),
       ])
       totalStaking = statsData.totalFrozen
       totalBakers = cycleData.totalBakers
@@ -256,9 +277,9 @@ export async function getBakersStats(): Promise<{
     console.error("Error calculating bakers stats:", error)
     
     const result = {
-      totalBakers: 412,
-      activeBakers: 412,
-      totalStaking: 486200000000, // 486.2M XTZ in mutez
+      totalBakers: 264,
+      activeBakers: 264,
+      totalStaking: 300149220000000, // 300,149,220 tez in mutez
       averageApy: 9.73,
       stakingApy: 9.73,
       delegationApy: 3.24,

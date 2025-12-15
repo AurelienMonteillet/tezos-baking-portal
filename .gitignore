@@ -67,4 +67,7 @@ docs/personal/
 # Logo source files (SVG sources, not for production)
 TBP logo SVGs/
 
+# Backup files from image optimization
+*.backup
+
 .aws-credentials

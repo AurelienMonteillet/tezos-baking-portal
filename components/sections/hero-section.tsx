@@ -24,7 +24,7 @@ export function HeroSection() {
           className="absolute top-0 right-0 w-full h-full object-cover object-top-right opacity-70"
           style={{ maxWidth: "100%", transform: "scale(1.2)" }}
           sizes="100vw"
-          quality={70}
+          quality={40}
           aria-hidden="true"
         />
       </div>
@@ -63,8 +63,8 @@ export function HeroSection() {
                 priority
                 fetchPriority="high"
                 className="object-cover"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                quality={80}
+                sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, 800px"
+                quality={75}
               />
             </div>
           </div>

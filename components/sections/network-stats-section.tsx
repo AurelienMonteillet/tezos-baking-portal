@@ -48,8 +48,8 @@ export function NetworkStatsSection({
         src={networkStatsContent.images.background}
         alt=""
         fill
-        priority
-        quality={70}
+        loading="lazy"
+        quality={40}
         className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
         sizes="100vw"
         aria-hidden="true"
@@ -195,18 +195,18 @@ export function NetworkStatsSection({
                     <div className="flex justify-between items-center py-2">
                       <span className="text-white-700">{networkStatsContent.networkPerformance.labels.activeBakers}</span>
                       <span className="font-semibold text-white-900 text-lg">
-                        {bakersStats ? bakersStats.activeBakers : "412"}
+                        {bakersStats ? bakersStats.activeBakers : "264"}
                       </span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-white-700">{networkStatsContent.networkPerformance.labels.totalStaked}</span>
                       <span className="font-semibold text-white-900 text-lg">
-                        {bakersStats ? `${formatXTZ(bakersStats.totalStaking)}` : "486.2M"}
+                        {bakersStats ? `${formatXTZ(bakersStats.totalStaking)}` : formatXTZ(300149220000000)}
                       </span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-white-700">{networkStatsContent.networkPerformance.labels.currentCycle}</span>
-                      <span className="font-semibold text-white-900 text-lg">{cycle ? cycle.index : "620"}</span>
+                      <span className="font-semibold text-white-900 text-lg">{cycle ? cycle.index : "1085"}</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-white-700">{networkStatsContent.networkPerformance.labels.blockTime}</span>
