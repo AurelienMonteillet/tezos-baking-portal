@@ -58,16 +58,25 @@ export function useNetworkStats() {
         invalidateNetworkCache()
       }
 
-      const [networkStats, currentCycle] = await Promise.all([getNetworkStats(force), getCurrentCycle(force)])
+      const networkStats = await getNetworkStats(force)
+      
+      // getCurrentCycle now finds the cycle that matches the current level
+      let cycleDetails: Cycle | null = null
+      try {
+        cycleDetails = await getCurrentCycle(force, networkStats.level)
+      } catch (err) {
+        // If we can't get cycle details, leave it null
+      }
 
       setStats(networkStats)
-      setCycle(currentCycle)
+      setCycle(cycleDetails)
       setError(null)
       setLastUpdated(new Date())
     } catch (err) {
-      // Use default values on error
+      // Use default values on error for stats (they change less frequently)
+      // But don't set a default cycle - it changes daily and would be misleading
       setStats({
-        cycle: 1085,
+        cycle: 0,
         level: 0,
         timestamp: new Date().toISOString(),
         totalBootstrapped: 0,
@@ -80,22 +89,9 @@ export function useNetworkStats() {
         totalRollupBonds: 0,
         totalSmartRollupBonds: 0,
       })
-      setCycle({
-        index: 1085,
-        firstLevel: 0,
-        startTime: new Date().toISOString(),
-        lastLevel: 0,
-        endTime: new Date().toISOString(),
-        snapshotIndex: 0,
-        snapshotLevel: 0,
-        randomSeed: "",
-        totalBakers: 264,
-        totalStaking: 300149220000000,
-        totalDelegated: 300149220000000,
-        totalDelegators: 0,
-      })
-      setError(null) // Don't show error, use defaults instead
-      setLastUpdated(new Date())
+      // Don't set a default cycle - leave it null so UI can show error/refresh message
+      setCycle(null)
+      setError(err instanceof Error ? err.message : "Failed to fetch network data")
     } finally {
       setLoading(false)
     }

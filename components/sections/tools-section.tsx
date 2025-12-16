@@ -6,34 +6,17 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { toolsContent } from "@/content/tools"
 
 export function ToolsSection() {
   const [showAll, setShowAll] = useState(false)
-  const [showButton, setShowButton] = useState(true)
   const INITIAL_CARDS = 6
   const TOTAL_CARDS = toolsContent.cards.length
-  
-  // Detect if we're in 3-column layout (lg breakpoint) where all 9 cards fit nicely
-  useEffect(() => {
-    const checkLayout = () => {
-      // lg breakpoint is 1024px in Tailwind
-      // With 3 columns, 9 cards = 3 rows, which is perfect
-      const isThreeColumns = window.innerWidth >= 1024
-      setShowButton(!isThreeColumns)
-    }
-    
-    checkLayout()
-    window.addEventListener('resize', checkLayout)
-    return () => window.removeEventListener('resize', checkLayout)
-  }, [])
-  
   const remainingCount = TOTAL_CARDS - INITIAL_CARDS
 
   return (
@@ -60,10 +43,11 @@ export function ToolsSection() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           {toolsContent.cards.map((card, index) => {
             const isVisible = index < INITIAL_CARDS || showAll
+            if (!isVisible) return null
             return (
               <Card 
                 key={index} 
-                className={`bg-black-800 border-black-600 hover:border-brand-blue-600/50 transition-colors flex flex-col h-full gap-0 ${!isVisible ? 'hidden lg:block' : ''}`}
+                className="bg-black-800 border-black-600 hover:border-brand-blue-600/50 transition-colors flex flex-col h-full gap-0"
               >
                 <CardHeader className="pb-4 text-left">
                   {/* Icon + text aligned like Get Started cards */}
@@ -117,25 +101,24 @@ export function ToolsSection() {
           })}
         </div>
 
-        {/* Show more/less button - appears when not in 3-column layout */}
-        {showButton && remainingCount > 0 && (
-          <div className="flex justify-center mt-8">
-            <Button
+        {/* Show more/less button */}
+        {remainingCount > 0 && (
+          <div className="flex justify-center mt-10 sm:mt-12">
+            <button
               onClick={() => setShowAll(!showAll)}
-              variant="outline"
-              className="rounded-full border-white-600 text-white-900 bg-transparent hover:bg-black-600 hover:text-white-900 px-6 py-2.5 font-sans text-sm font-medium"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff]"
               aria-label={showAll ? "Show fewer tools" : "Show more tools"}
             >
               {showAll ? (
                 <>
-                  Show less <ChevronUp className="h-4 w-4 ml-2" />
+                  Show less <ChevronUp className="ml-2 h-5 w-5" />
                 </>
               ) : (
                 <>
-                  View more ({remainingCount} more) <ChevronDown className="h-4 w-4 ml-2" />
+                  View more ({remainingCount} more) <ChevronDown className="ml-2 h-5 w-5" />
                 </>
               )}
-            </Button>
+            </button>
           </div>
         )}
       </div>

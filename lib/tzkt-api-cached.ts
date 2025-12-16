@@ -121,14 +121,31 @@ export async function getNetworkStats(force = false): Promise<NetworkStats> {
  * @param force - If true, bypass cache and force fresh fetch
  * @returns Current cycle object
  */
-export async function getCurrentCycle(force = false): Promise<Cycle> {
-  // TzKT API returns cycles in descending order by default, so [0] is the current/latest cycle
+export async function getCurrentCycle(force = false, currentLevel?: number): Promise<Cycle> {
+  // Fetch cycles - we'll fetch multiple to find the one that matches
   const cycles = await cachedTzktFetch<Cycle[]>(
-    "/v1/cycles?sort.desc=index&limit=1",
+    "/v1/cycles?sort.desc=index&limit=10",
     CacheKeys.currentCycle(),
     CacheStrategies.NETWORK_STATS,
     force,
   )
+  
+  if (!cycles || cycles.length === 0) {
+    throw new Error("Failed to fetch cycles from API")
+  }
+  
+  // If currentLevel is provided, find the cycle that contains it
+  if (currentLevel !== undefined) {
+    const currentCycle = cycles.find(
+      (cycle) => currentLevel >= cycle.firstLevel && currentLevel <= cycle.lastLevel
+    )
+    
+    if (currentCycle) {
+      return currentCycle
+    }
+  }
+  
+  // If no level provided or no match, return the first one (most recent) as fallback
   return cycles[0]
 }
 
@@ -248,10 +265,8 @@ export async function getBakersStats(force = false): Promise<{
     let totalBakers = 264 // Default fallback
     
     try {
-      const [cycleData, statsData] = await Promise.all([
-        getCurrentCycle(force),
-        getNetworkStats(force),
-      ])
+      const statsData = await getNetworkStats(force)
+      const cycleData = await getCurrentCycle(force, statsData.level)
       totalStaking = statsData.totalFrozen
       totalBakers = cycleData.totalBakers
     } catch (tzktError) {

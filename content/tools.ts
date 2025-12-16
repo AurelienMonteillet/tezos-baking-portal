@@ -76,7 +76,7 @@ export const toolsContent = {
     },
     {
       icon: Code,
-      title: "Octez Client",
+      title: "Octez Suite",
       description: "Command-line client for interacting with Tezos and running nodes.",
       linkText: "View documentation",
       href: "https://docs.tezos.com/developing/octez-client",

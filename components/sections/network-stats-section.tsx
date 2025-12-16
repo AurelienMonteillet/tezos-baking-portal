@@ -206,7 +206,20 @@ export function NetworkStatsSection({
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-white-700">{networkStatsContent.networkPerformance.labels.currentCycle}</span>
-                      <span className="font-semibold text-white-900 text-lg">{cycle ? cycle.index : "1085"}</span>
+                      {cycle && cycle.index > 0 ? (
+                        <span className="font-semibold text-white-900 text-lg">{cycle.index}</span>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => refreshNetwork()}
+                          disabled={networkLoading}
+                          className="inline-flex items-center gap-1.5 text-brand-blue-400 hover:text-brand-blue-300 disabled:text-white-500 disabled:cursor-not-allowed text-sm font-medium transition-colors underline underline-offset-2 cursor-pointer"
+                          aria-label="Refresh to load current cycle"
+                        >
+                          <RefreshCw className={`h-3.5 w-3.5 ${networkLoading ? "animate-spin" : ""}`} />
+                          {networkLoading ? "Loading..." : "Refresh"}
+                        </button>
+                      )}
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-white-700">{networkStatsContent.networkPerformance.labels.blockTime}</span>

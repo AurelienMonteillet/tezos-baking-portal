@@ -6,7 +6,8 @@ const nextConfig = {
   // Security headers will be configured in CloudFront distribution
   // This is normal and not a problem - CloudFront handles headers
   typescript: {
-    ignoreBuildErrors: true,
+    // TypeScript errors are checked during build
+    // ignoreBuildErrors: false, // Default - errors will fail the build
   },
   images: {
     unoptimized: true, // Required for static export (S3 doesn't support Next.js image optimization)
