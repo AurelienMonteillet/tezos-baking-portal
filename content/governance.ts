@@ -4,15 +4,15 @@ export const governanceContent = {
   steps: [
     {
       title: "Proposal Period",
-      description: "Bakers submit and upvote protocol upgrade proposals.",
+      description: "Delegates propose and upvote protocol amendment proposals. If a quorum is met, the top-voted proposal moves to the next period.",
     },
     {
-      title: "Exploration & Testing",
-      description: "The winning proposal moves to an exploration vote followed by a testing period on a test network.",
+      title: "Exploration & Cooldown",
+      description: "Delegates vote on whether to consider the proposal (Exploration period). If passed, a Cooldown period allows the community to test and prepare infrastructure.",
     },
     {
       title: "Promotion & Adoption",
-      description: "After successful testing, a promotion vote determines if the proposal is adopted into the protocol.",
+      description: "Delegates make a final vote on whether to apply the proposal (Promotion period). If passed, the Adoption period allows adaptation before automatic activation.",
     },
   ],
   buttons: {

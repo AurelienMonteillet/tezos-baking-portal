@@ -10,7 +10,6 @@ export const getStartedContent = {
       description: "Different ways to deploy your baker",
       items: [
         "Bare metal installation",
-        "Docker / Docker Compose",
         "Octez services",
         "Octez signer",
       ],
@@ -40,7 +39,7 @@ export const getStartedContent = {
         "Low-latency reliable internet connection",
       ],
       linkText: "View hardware guide",
-      href: "https://octez.tezos.com/docs/user/minimal-hardware-specifications",
+      href: "https://octez.tezos.com/docs/releases/version-23.html#minimal-hardware-specifications",
     },
     {
       icon: Terminal,
