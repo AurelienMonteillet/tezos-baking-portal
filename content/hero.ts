@@ -1,6 +1,6 @@
 export const heroContent = {
-  title: "Tezos Baking Portal",
-  description: "Your comprehensive resource for Tezos baking - from setup to optimization, governance to rewards.",
+  title: "Join the *Tezos baking community* and help secure the network while earning rewards.",
+  description: "Tezos Baking Portal is your comprehensive resource from setup to optimization, governance to rewards.",
   primaryButton: {
     text: "Get Started",
     href: "#get-started",
