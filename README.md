@@ -235,23 +235,36 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete deployment guide.
 
 ## 📂 Project Structure
 
-> 📖 **For detailed architecture documentation, see [ARCHITECTURE.md](./ARCHITECTURE.md)**
-
 ```
 tezos-baking-portal/
 ├── app/                          # Next.js App Router
-│   ├── globals.css              # Global styles + Tailwind config
+│   ├── globals.css              # Global styles + Tailwind v4 config
 │   ├── layout.tsx               # Root layout
 │   ├── page.tsx                 # Home page
-│   └── statistics/              # Baker statistics page
+│   ├── robots.ts                # Robots.txt generator
+│   └── sitemap.ts               # Sitemap generator
 ├── components/                   # React components
+│   ├── sections/                # Page sections
+│   │   ├── header.tsx
+│   │   ├── hero-section.tsx
+│   │   ├── network-stats-section.tsx
+│   │   ├── about-section.tsx
+│   │   ├── get-started-section.tsx
+│   │   ├── governance-section.tsx
+│   │   ├── tools-section.tsx
+│   │   ├── documentation-section.tsx
+│   │   ├── cta-section.tsx
+│   │   ├── footer.tsx
+│   │   └── scroll-to-top-button.tsx
 │   ├── ui/                      # Reusable UI components
 │   │   ├── button.tsx
 │   │   ├── card.tsx
 │   │   ├── input.tsx
 │   │   ├── tabs.tsx
 │   │   └── badge.tsx
-│   └── theme-provider.tsx       # Theme context provider
+│   ├── theme-provider.tsx       # Theme context provider
+│   ├── feedback-button.tsx      # Feedback form button
+│   └── deferred-posthog.tsx     # Analytics (deferred loading)
 ├── content/                      # Text content, links, and image references
 │   ├── about.ts
 │   ├── cta.ts
@@ -271,12 +284,17 @@ tezos-baking-portal/
 │   ├── tzkt-api-cached.ts       # Cached API wrapper
 │   └── utils.ts                 # Utility functions
 ├── public/                       # Static assets
-│   ├── images/                  # Images and illustrations
-│   ├── fonts/                   # Custom fonts
+│   ├── images/                  # Gradient backgrounds (WebP)
+│   ├── fonts/                   # Custom fonts (GT Eesti Display)
 │   ├── tezos-baking-portal-logo.svg  # Complete logo (logo + text)
-│   └── tezos-logomark.svg       # Logo mark only
+│   ├── tezos-logomark.svg       # Logo mark only
+│   └── tezos-*-illustration.webp # Optimized illustrations (WebP)
+├── scripts/                      # Build and deployment scripts
+│   ├── optimize-images.js       # Image optimization script
+│   ├── optimize-jpg-images.js   # JPG to WebP conversion
+│   ├── deploy-s3.sh             # AWS S3 deployment
+│   └── test-links.js            # Link validation
 ├── next.config.mjs              # Next.js configuration
-├── tailwind.config.ts           # Tailwind configuration
 ├── tsconfig.json                # TypeScript configuration
 └── package.json                 # Dependencies and scripts
 ```

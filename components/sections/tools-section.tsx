@@ -26,6 +26,8 @@ export function ToolsSection() {
         alt=""
         width={1920}
         height={1080}
+        quality={40}
+        loading="lazy"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
         aria-hidden="true"
       />

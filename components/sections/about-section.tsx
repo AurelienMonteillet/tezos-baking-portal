@@ -61,6 +61,8 @@ export function AboutSection() {
               height={600}
               className="w-full h-auto rounded-xl md:rounded-2xl"
               sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="lazy"
+              quality={60}
             />
           </div>
         </div>

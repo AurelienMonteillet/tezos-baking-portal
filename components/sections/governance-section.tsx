@@ -12,14 +12,16 @@ import { governanceContent } from "@/content/governance"
 export function GovernanceSection() {
   return (
     <section id="governance" className="relative py-16 md:py-32 overflow-hidden">
-      <Image
-        src={governanceContent.images.background}
-        alt=""
-        width={1920}
-        height={1080}
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
-        aria-hidden="true"
-      />
+            <Image
+              src={governanceContent.images.background}
+              alt=""
+              width={1920}
+              height={1080}
+              quality={40}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
+              aria-hidden="true"
+            />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
@@ -40,7 +42,7 @@ export function GovernanceSection() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
               loading="lazy"
-              quality={70}
+              quality={60}
             />
           </div>
 
@@ -59,10 +61,10 @@ export function GovernanceSection() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mt-8 md:mt-12 px-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 md:gap-4 mt-8 md:mt-12 px-4">
           <Link
             href={governanceContent.buttons.primary.href}
-            className="inline-flex h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full sm:w-auto"
+            className="inline-flex h-11 sm:h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-4 sm:px-5 font-heading font-normal text-sm sm:text-base md:text-lg leading-6 sm:leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full sm:w-auto sm:flex-shrink-0"
           >
             {governanceContent.buttons.primary.text}
           </Link>
@@ -70,9 +72,12 @@ export function GovernanceSection() {
             href={governanceContent.buttons.secondary.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 items-center justify-center rounded-full border border-white-600 bg-transparent text-white-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900/10 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full sm:w-auto"
+            className="inline-flex h-11 sm:h-12 items-center justify-center rounded-full border border-white-600 bg-transparent text-white-900 px-4 sm:px-5 font-heading font-normal text-sm sm:text-base md:text-lg leading-6 sm:leading-7 transition-all hover:bg-white-900/10 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full sm:w-auto sm:flex-shrink-0"
           >
-            {governanceContent.buttons.secondary.text} <ExternalLink className="ml-2 h-5 w-5" />
+            <span className="flex items-center justify-center gap-2">
+              {governanceContent.buttons.secondary.text}
+              <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+            </span>
           </Link>
         </div>
       </div>

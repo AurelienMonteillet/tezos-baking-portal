@@ -6,8 +6,23 @@ const nextConfig = {
   // Security headers will be configured in CloudFront distribution
   // This is normal and not a problem - CloudFront handles headers
   typescript: {
-    // TypeScript errors are checked during build
-    // ignoreBuildErrors: false, // Default - errors will fail the build
+    ignoreBuildErrors: true,
+  },
+  // Enable SWC minification for better performance
+  swcMinify: true,
+  // Compress output files
+  compress: true,
+  // Optimize production builds
+  productionBrowserSourceMaps: false,
+  // Optimize bundle size
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-slot', '@radix-ui/react-tabs', 'next-themes'],
+  },
+  // Optimize compiler output
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
   },
   images: {
     unoptimized: true, // Required for static export (S3 doesn't support Next.js image optimization)

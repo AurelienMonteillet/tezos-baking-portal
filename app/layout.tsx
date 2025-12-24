@@ -14,8 +14,11 @@ import type { Metadata } from "next"
 import { Outfit, Roboto } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { FeedbackButton } from "@/components/feedback-button"
-import { DeferredPostHog } from "@/components/deferred-posthog"
+import dynamic from "next/dynamic"
+
+// Lazy load non-critical components to reduce initial bundle size
+const FeedbackButton = dynamic(() => import("@/components/feedback-button").then(m => ({ default: m.FeedbackButton })), { ssr: false })
+const DeferredPostHog = dynamic(() => import("@/components/deferred-posthog").then(m => ({ default: m.DeferredPostHog })), { ssr: false })
 
 // Configure Outfit font (headings and UI elements)
 // Reduced weights for better mobile performance
@@ -27,6 +30,7 @@ const outfit = Outfit({
   weight: ["400", "600", "700"], // Removed 500 to reduce font file size
   preload: true, // Preload primary font for faster display
   adjustFontFallback: true, // Automatically adjusts fallback font metrics
+  fallback: ["system-ui", "arial"], // Better fallback for faster rendering
 })
 
 // Configure Roboto font (body text)
@@ -39,6 +43,7 @@ const roboto = Roboto({
   display: "swap", // Shows custom font as soon as it loads
   preload: false, // Only preload primary font
   adjustFontFallback: true, // Automatically adjusts fallback font metrics
+  fallback: ["system-ui", "arial"], // Better fallback for faster rendering
 })
 
 /**
@@ -132,9 +137,10 @@ export default function RootLayout({
         <link rel="shortcut icon" type="image/png" href="/icon.png" />
         <link rel="apple-touch-icon" sizes="32x32" href="/icon.png" />
         
-        {/* Structured Data for SEO */}
+        {/* Structured Data for SEO - Non-blocking */}
         <script
           type="application/ld+json"
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               {
@@ -172,16 +178,14 @@ export default function RootLayout({
         {/* PostHog Analytics is loaded client-side after LCP via DeferredPostHog component to improve performance */}
         {/* Removed inline script to prevent render blocking - see DeferredPostHog component */}
         
-        {/* Preload LCP image and critical fonts for better performance */}
+        {/* Preload LCP image (hero illustration) for better performance */}
         <link
           rel="preload"
           as="image"
-          href="/images/gradient-bg-top-right.webp"
+          href="/tezos-baking-illustration-with-people-collaboratin.webp"
           type="image/webp"
+          fetchPriority="high"
         />
-        {/* Preconnect to Google Fonts for faster font loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased">
         {/* Theme provider enables dark mode support */}

@@ -24,7 +24,7 @@ export function DeferredPostHog() {
         `
         document.body.appendChild(script)
       }
-    }, 3000) // Load after 3 seconds
+    }, 5000) // Load after 5 seconds to improve initial performance
 
     return () => clearTimeout(timer)
   }, [])

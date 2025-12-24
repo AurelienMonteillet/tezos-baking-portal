@@ -16,16 +16,14 @@
 "use client"
 
 import { useState, useEffect, lazy, Suspense } from "react"
-import { useNetworkStats, useBakersStats, useDataPreloader } from "@/hooks/use-tzkt-data-cached"
+import { useNetworkStats, useBakersStats } from "@/hooks/use-tzkt-data-cached"
 
-// Critical sections - loaded immediately
-import {
-  Header,
-  HeroSection,
-  NetworkStatsSection,
-  Footer,
-  ScrollToTopButton,
-} from "@/components/sections"
+// Critical sections - loaded immediately (only what's needed for initial render)
+import { Header } from "@/components/sections/header"
+import { HeroSection } from "@/components/sections/hero-section"
+import { NetworkStatsSection } from "@/components/sections/network-stats-section"
+import { Footer } from "@/components/sections/footer"
+import { ScrollToTopButton } from "@/components/sections/scroll-to-top-button"
 
 // Non-critical sections - lazy loaded for better mobile performance
 const AboutSection = lazy(() => import("@/components/sections/about-section").then(m => ({ default: m.AboutSection })))
@@ -53,8 +51,18 @@ export default function Home() {
     refresh: refreshBakers,
   } = useBakersStats()
 
-  // Preload critical data for better performance
-  useDataPreloader()
+  // Preload critical data for better performance - deferred to avoid blocking initial render
+  useEffect(() => {
+    // Defer preloading to avoid blocking initial render
+    const timer = setTimeout(() => {
+      import("@/lib/tzkt-api-cached").then(({ preloadCriticalData }) => {
+        preloadCriticalData().catch(() => {
+          // Silently fail - preload is not critical
+        })
+      })
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [])
 
   // UI state management
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
