@@ -1,4 +1,4 @@
-# 🥖 Tezos Baking Portal
+# Tezos Baking Portal
 
 <div align="center">
 
@@ -17,77 +17,34 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [About](#about)
-- [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [Content Management](#content-management)
 - [Project Structure](#project-structure)
-- [Caching System](#caching-system)
 - [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Contact](#contact)
 
 ---
 
-## 🎯 About
+## About
 
 Tezos Baking Portal is a modern, production-ready web application designed to help Tezos bakers and delegators make informed decisions. Built with performance and user experience in mind, it provides real-time blockchain data with intelligent caching to minimize API calls and deliver instant results.
 
 ### Why This Project?
 
-- **🚀 Performance First**: Intelligent multi-level caching system (in-memory + localStorage)
-- **📊 Real-time Data**: Live network statistics and baker performance metrics
-- **🎨 Beautiful UI**: Modern, responsive design with dark mode support
-- **🔧 Production Ready**: Well-documented, type-safe, and optimized code
-- **🌍 Open Source**: Community-driven and welcoming contributions
+- Performance first: intelligent multi-level caching (in-memory + localStorage)
+- Real-time data: live network statistics and baker performance metrics
+- Modern UI: responsive design with dark mode support
+- Production ready: documented, type-safe, optimized
+- Open source: community-driven and welcoming contributions
 
 ---
 
-## ✨ Features
-
-### 🔥 Core Features
-
-- **Real-time Network Statistics**
-  - Current staking APY
-  - Active bakers count
-  - Total staked XTZ
-  - Current cycle information
-  - Block time metrics
-
-- **Baker Analytics**
-  - Detailed baker profiles
-  - Performance metrics (blocks, endorsements)
-  - Reward history tracking
-  - Staking efficiency visualization
-  - Frozen balance breakdown
-
-- **Intelligent Caching**
-  - Multi-level cache (memory + localStorage)
-  - Stale-while-revalidate pattern
-  - Automatic cache invalidation
-  - Performance monitoring
-
-- **Educational Content**
-  - Baking process explained
-  - Setup guides for new bakers
-  - Hardware requirements
-  - Key management best practices
-  - Governance information
-
-### 🎨 UI/UX Features
-
-- Fully responsive design (mobile, tablet, desktop)
-- Dark mode by default
-- Smooth scrolling navigation
-- Loading states and error handling
-- Accessible components (Radix UI)
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
 
@@ -109,7 +66,7 @@ Tezos Baking Portal is a modern, production-ready web application designed to he
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -175,7 +132,7 @@ npm install
 
 ---
 
-## 📝 Content Management
+## Content Management
 
 All website content is separated from the code for easy maintenance. You can find all text, links, and image references in the `content/` directory.
 
@@ -199,7 +156,7 @@ To update any text or link:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 tezos-baking-portal/
@@ -266,53 +223,7 @@ tezos-baking-portal/
 
 ---
 
-## 🔥 Caching System
-
-One of the key features of this project is the intelligent caching system that significantly improves performance.
-
-### Architecture
-
-```
-User Request → Cache Manager → TzKT API
-                    ↓
-              In-Memory Cache
-                    ↓
-              localStorage (optional)
-```
-
-### Caching Strategies
-
-| Data Type | TTL | localStorage | Stale-while-revalidate |
-|-----------|-----|--------------|------------------------|
-| Network Stats | 5 min | ✅ | ✅ |
-| Bakers List | 10 min | ✅ | ✅ |
-| Baker Details | 2 min | ❌ | ✅ |
-| Rewards History | 30 min | ✅ | ❌ |
-| Global Stats | 1 min | ❌ | ✅ |
-
-### Features
-
-- **Multi-level caching**: In-memory (fast) + localStorage (persistent)
-- **Stale-while-revalidate**: Show cached data instantly, update in background
-- **Automatic invalidation**: Smart cache expiration and refresh
-- **Hit rate tracking**: Monitor cache performance
-
-### Example Usage
-
-```typescript
-import { useNetworkStats } from '@/hooks/use-tzkt-data-cached'
-
-function MyComponent() {
-  const { stats, loading, error, refresh } = useNetworkStats()
-  
-  // Data is automatically cached and refreshed
-  // Manual refresh available with refresh()
-}
-```
-
----
-
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Feel free to:
 - 🐛 Report bugs
@@ -323,30 +234,16 @@ Fork the repo, make your changes, and open a PR!
 
 ---
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
-
-- **[TzKT](https://tzkt.io/)** - For providing the excellent Tezos blockchain indexer API
-- **[Tezos](https://tezos.com/)** - For the amazing blockchain technology
-- **[Shadcn UI](https://ui.shadcn.com/)** - For the beautiful component library
-
----
-
-## 📞 Contact & Links
+## Contact
 
 - **Issues**: [Report a bug](https://github.com/AurelienMonteillet/tezos-baking-portal/issues)
 - **Website**: [tezos.com](https://tezos.com)
 
 ---
 
-<div align="center">
-
-**⭐ If you find this project useful, please consider giving it a star! ⭐**
-
-
-</div>
