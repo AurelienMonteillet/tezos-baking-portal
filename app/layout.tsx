@@ -77,7 +77,7 @@ export const metadata: Metadata = {
       "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
     images: [
       {
-        url: "/tezos-baking-portal-og.svg",
+        url: "/tezos-baking-portal-og-v2.svg",
         width: 1200,
         height: 630,
         alt: "Tezos Baking Portal",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tezos Baking Portal",
     description: "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
-    images: ["/tezos-baking-portal-og.svg"],
+    images: ["/tezos-baking-portal-og-v2.svg"],
   },
   robots: {
     index: true,
