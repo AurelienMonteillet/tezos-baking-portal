@@ -11,7 +11,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[Live Demo](https://baking-portal.vercel.app) · [Report Bug](../../issues) · [Request Feature](../../issues)
+[Report Bug](https://github.com/AurelienMonteillet/tezos-baking-portal/issues) · [Request Feature](https://github.com/AurelienMonteillet/tezos-baking-portal/issues)
 
 </div>
 
@@ -24,7 +24,6 @@
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [Content Management](#content-management)
-- [Deployment](#deployment)
 - [Project Structure](#project-structure)
 - [Caching System](#caching-system)
 - [Contributing](#contributing)
@@ -117,10 +116,7 @@ Tezos Baking Portal is a modern, production-ready web application designed to he
 Before you begin, ensure you have installed:
 
 - **Node.js** ≥ 18.17 ([Download](https://nodejs.org/))
-- **pnpm** (recommended) or npm
-  ```bash
-  npm install -g pnpm
-  ```
+- **npm** or **pnpm** (npm is included with Node.js)
 
 ### Installation
 
@@ -144,7 +140,9 @@ Before you begin, ensure you have installed:
    
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-### Build for Production
+### Build for Production (Local)
+
+If you want to test an optimized version locally:
 
 ```bash
 # Create optimized production build
@@ -153,6 +151,8 @@ npm run build
 # Start production server
 npm start
 ```
+
+The site will be accessible at [http://localhost:3000](http://localhost:3000) with production optimizations enabled.
 
 ### Troubleshooting
 
@@ -166,7 +166,7 @@ node -v  # Should be ≥ 18.17
 
 # Solution 2: Clear Next.js cache
 rm -rf .next
-pnpm dev
+npm run dev
 
 # Solution 3: Reinstall dependencies
 rm -rf node_modules package-lock.json
@@ -196,40 +196,6 @@ To update any text or link:
 - `documentation.ts`: Documentation links.
 - `cta.ts`: Call to action section.
 - `footer.ts`: Footer text and copyright.
-
----
-
-## 🚀 Deployment
-
-This project is deployed on **AWS S3 + CloudFront**.
-
-### Quick Deploy
-
-```bash
-# Staging
-npm run deploy:staging
-
-# Production
-npm run deploy:prod
-```
-
-### Prerequisites
-
-1. **AWS CLI installed** - [Install guide](https://aws.amazon.com/cli/)
-2. **AWS Credentials configured** - Set environment variables or run `aws configure`
-
-```bash
-export AWS_ACCESS_KEY_ID="AKIAZVZBOPN5T77KQ3C3"
-export AWS_SECRET_ACCESS_KEY="<your-secret-key>"
-export AWS_DEFAULT_REGION="us-east-1"
-```
-
-### Detailed Instructions
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete deployment guide.
-
-**Production URL**: https://bakers.tezos.com  
-**Staging URL**: https://next-bakers-tezos-com.tzstaging.com
 
 ---
 
@@ -289,10 +255,9 @@ tezos-baking-portal/
 │   ├── tezos-baking-portal-logo.svg  # Complete logo (logo + text)
 │   ├── tezos-logomark.svg       # Logo mark only
 │   └── tezos-*-illustration.webp # Optimized illustrations (WebP)
-├── scripts/                      # Build and deployment scripts
+├── scripts/                      # Build and utility scripts
 │   ├── optimize-images.js       # Image optimization script
 │   ├── optimize-jpg-images.js   # JPG to WebP conversion
-│   ├── deploy-s3.sh             # AWS S3 deployment
 │   └── test-links.js            # Link validation
 ├── next.config.mjs              # Next.js configuration
 ├── tsconfig.json                # TypeScript configuration
@@ -369,14 +334,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **[TzKT](https://tzkt.io/)** - For providing the excellent Tezos blockchain indexer API
 - **[Tezos](https://tezos.com/)** - For the amazing blockchain technology
 - **[Shadcn UI](https://ui.shadcn.com/)** - For the beautiful component library
-- **[Vercel](https://vercel.com/)** - For the best Next.js deployment platform
 
 ---
 
 ## 📞 Contact & Links
 
-- **Issues**: [Report a bug](../../issues)
-- **Discussions**: [Join the conversation](../../discussions)
+- **Issues**: [Report a bug](https://github.com/AurelienMonteillet/tezos-baking-portal/issues)
 - **Website**: [tezos.com](https://tezos.com)
 
 ---

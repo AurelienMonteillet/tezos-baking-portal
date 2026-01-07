@@ -17,5 +17,6 @@ export const footerContent = {
   images: {
     logo: "/tezos-logomark.svg",
   },
-  copyright: `© ${new Date().getFullYear()} Tezos Baking Portal. All rights reserved.`,
+  // Copyright year is generated dynamically in Footer component to avoid hydration issues
+  // The year updates automatically each year without manual changes
 }

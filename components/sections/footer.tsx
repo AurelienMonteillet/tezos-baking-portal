@@ -1,15 +1,28 @@
+"use client"
+
 /**
  * Footer Component
  * 
  * Site footer with links, copyright, and attribution
  */
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Github } from "lucide-react"
 import { footerContent } from "@/content/footer"
 
 export function Footer() {
+  // Start with current year as default (2024, 2025, etc.)
+  // This will be updated on client mount to ensure it's always accurate
+  const [copyrightYear, setCopyrightYear] = useState("2024")
+
+  // Update copyright year on client mount to ensure it's always current
+  // This runs only on client, preventing hydration mismatch
+  useEffect(() => {
+    setCopyrightYear(new Date().getFullYear().toString())
+  }, [])
+
   return (
     <footer className="w-full border-t border-white/10 bg-black-900">
       <div className="container mx-auto px-4 sm:px-6 py-8">
@@ -105,7 +118,9 @@ export function Footer() {
       {/* Bottom Section: Copyright - Outside container for full-width border */}
       <div className="w-full border-t border-white/10">
         <div className="container mx-auto px-4 sm:px-6 py-6">
-          <p className="text-sm text-white-700 text-center">{footerContent.copyright}</p>
+          <p className="text-sm text-white-700 text-center">
+            © {copyrightYear} Tezos Baking Portal. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -71,3 +71,4 @@ TBP logo SVGs/
 *.backup
 
 .aws-credentials
+scripts/deploy-config.sh
