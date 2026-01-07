@@ -73,13 +73,15 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Tezos Baking Portal",
     title: "Tezos Baking Portal - Your Complete Baking Resource",
-    description: "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
+    description:
+      "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
     images: [
       {
-        url: "/tezos-baking-portal-logo.svg",
-        width: 191,
-        height: 32,
-        alt: "Tezos Baking Portal",
+        // Use the hero illustration as social preview to avoid logo cropping
+        url: "/tezos-baking-illustration-with-people-collaboratin.webp",
+        width: 1200,
+        height: 630,
+        alt: "Tezos Baking Portal - hero illustration",
       },
     ],
   },
@@ -87,7 +89,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tezos Baking Portal",
     description: "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
-    images: ["/tezos-baking-portal-logo.svg"],
+    images: ["/tezos-baking-illustration-with-people-collaboratin.webp"],
   },
   robots: {
     index: true,

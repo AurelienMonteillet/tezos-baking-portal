@@ -64,8 +64,8 @@ export function HeroSection() {
               </Link>
             </div>
           </div>
-          <div className="relative lg:block overflow-hidden">
-            <div className="aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 max-h-[300px] md:max-h-[400px] lg:max-h-none relative">
+          <div className="relative lg:block w-full">
+            <div className="aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 relative w-full">
               <Image
                 src={heroContent.images.illustration}
                 alt="Tezos Baking Portal - Comprehensive resource for baking"

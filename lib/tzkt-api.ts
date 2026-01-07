@@ -54,7 +54,7 @@ export interface Baker {
   fee: number                      // Baker's fee percentage
   estimatedApy: number             // Estimated annual percentage yield
   numBlocks: number                // Total blocks baked
-  numEndorsements: number          // Total endorsements made
+  numEndorsements: number          // Total attestations made (TzKT field name: endorsements)
   numBallots: number               // Governance ballots cast
   numProposals: number             // Governance proposals submitted
   numActivations: number           // Account activations processed
@@ -100,19 +100,19 @@ export interface BakerRewards {
   baker: string                           // Baker's address
   stakingBalance: number                  // Baker's staking balance for this cycle
   expectedBlocks: number                  // Number of blocks expected to bake
-  expectedEndorsements: number            // Number of endorsements expected
+  expectedEndorsements: number            // Number of attestations expected (TzKT: endorsements)
   futureBlocks: number                    // Future blocks (not yet baked)
   futureBlockRewards: number              // Potential rewards from future blocks
   blocks: number                          // Actual blocks baked
   blockRewards: number                    // Rewards earned from baking blocks
   missedBlocks: number                    // Blocks missed (not baked)
   missedBlockRewards: number              // Rewards lost from missed blocks
-  futureEndorsements: number              // Future endorsements (not yet made)
-  futureEndorsementRewards: number        // Potential rewards from future endorsements
-  endorsements: number                    // Actual endorsements made
-  endorsementRewards: number              // Rewards earned from endorsements
-  missedEndorsements: number              // Endorsements missed
-  missedEndorsementRewards: number        // Rewards lost from missed endorsements
+  futureEndorsements: number              // Future attestations (not yet made) (TzKT: endorsements)
+  futureEndorsementRewards: number        // Potential rewards from future attestations
+  endorsements: number                    // Actual attestations made (TzKT field: endorsements)
+  endorsementRewards: number              // Rewards earned from attestations
+  missedEndorsements: number              // Attestations missed
+  missedEndorsementRewards: number        // Rewards lost from missed attestations
   blockFees: number                       // Transaction fees collected
   missedBlockFees: number                 // Fees lost from missed blocks
   doubleBakingRewards: number             // Rewards from catching double bakers
@@ -162,24 +162,4 @@ export function formatPercentage(value: number): string {
  */
 export function formatAddress(address: string): string {
   return `${address.slice(0, 7)}...${address.slice(-4)}`
-}
-
-/**
- * Calculate estimated APY based on recent rewards
- * @param baker - Baker information
- * @param recentRewards - Array of recent reward cycles
- * @returns Estimated annual percentage yield
- */
-export function calculateEstimatedApy(baker: Baker, recentRewards: BakerRewards[]): number {
-  if (recentRewards.length === 0 || baker.stakingBalance === 0) return 0
-
-  // Calculate average rewards from recent cycles
-  const avgRewards =
-    recentRewards.reduce((sum, reward) => {
-      return sum + (reward.blockRewards + reward.endorsementRewards + reward.blockFees)
-    }, 0) / recentRewards.length
-
-  // Estimate APY (approximately 365 cycles per year)
-  const annualRewards = avgRewards * 365
-  return (annualRewards / baker.stakingBalance) * 100
 }

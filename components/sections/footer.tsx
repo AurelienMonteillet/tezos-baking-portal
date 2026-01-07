@@ -25,7 +25,7 @@ export function Footer() {
 
   return (
     <footer className="w-full border-t border-white/10 bg-black-900">
-      <div className="container mx-auto px-4 sm:px-6 py-8">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8">
         <div className="flex flex-col gap-8">
           {/* Top Section: Links organized in columns */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -117,7 +117,7 @@ export function Footer() {
 
       {/* Bottom Section: Copyright - Outside container for full-width border */}
       <div className="w-full border-t border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 py-6">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 py-6">
           <p className="text-sm text-white-700 text-center">
             © {copyrightYear} Tezos Baking Portal. All rights reserved.
           </p>

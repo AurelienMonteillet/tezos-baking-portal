@@ -12,20 +12,11 @@
  */
 
 import { cacheManager, CacheStrategies, CacheKeys } from "./cache-manager"
-import {
-  type NetworkStats,
-  type Cycle,
-  type Baker,
-  type BakerRewards,
-  formatXTZ,
-  formatPercentage,
-  formatAddress,
-  calculateEstimatedApy,
-} from "./tzkt-api"
+import { type NetworkStats, type Cycle, type Baker, type BakerRewards, formatXTZ, formatPercentage, formatAddress } from "./tzkt-api"
 
 // Re-export types and helpers for convenience
 export type { NetworkStats, Cycle, Baker, BakerRewards }
-export { formatXTZ, formatPercentage, formatAddress, calculateEstimatedApy }
+export { formatXTZ, formatPercentage, formatAddress }
 
 const TZKT_API_BASE = "https://api.tzkt.io"
 
@@ -193,10 +184,10 @@ export async function getBakerRewards(address: string, limit = 10): Promise<Bake
 }
 
 /**
- * Get aggregated statistics about all bakers
- * Calculates total bakers, active bakers, total staking, and APY
- * APY is calculated from on-chain data without external APIs
- * Cached for 1 minute (no localStorage persistence)
+ * Get aggregated statistics about all bakers.
+ * Calculates total bakers, active bakers, total staking, and APY.
+ * APY values are fetched from tez.cool (with sane defaults if it fails).
+ * Cached for 1 minute (no localStorage persistence).
  * @param force - If true, bypass cache and force fresh fetch
  * @returns Object containing aggregated baker statistics
  */

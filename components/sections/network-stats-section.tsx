@@ -55,7 +55,7 @@ export function NetworkStatsSection({
         aria-hidden="true"
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal mb-4 md:mb-6 text-white-900 text-balance">
             {networkStatsContent.title}
