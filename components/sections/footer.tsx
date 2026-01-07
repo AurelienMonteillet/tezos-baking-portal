@@ -28,9 +28,9 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8">
         <div className="flex flex-col gap-8">
           {/* Top Section: Links organized in columns */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Column 1: About */}
-            <div className="flex flex-col gap-3 col-span-2 sm:col-span-1">
+            <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2 mb-2">
                 <Image src={footerContent.images.logo} alt="Tezos logo" width={20} height={20} className="h-5 w-5 opacity-90" />
                 <span className="text-sm font-medium text-white-900">Tezos Baking Portal</span>
@@ -60,7 +60,7 @@ export function Footer() {
             </div>
 
             {/* Column 2: Community */}
-            <div className="flex flex-col gap-3 sm:items-start items-end text-right sm:text-left">
+            <div className="flex flex-col gap-3">
               <h3 className="text-sm font-heading font-normal text-white-900 mb-1">Community</h3>
               <div className="flex flex-col gap-2">
                 {footerContent.communityLinks.map((link, index) => (
@@ -98,13 +98,13 @@ export function Footer() {
             </div>
 
             {/* Column 4: Source Code */}
-            <div className="flex flex-col gap-3 sm:items-start items-end text-right sm:text-left">
+            <div className="flex flex-col gap-3">
               <h3 className="text-sm font-heading font-normal text-white-900 mb-1">Source Code</h3>
               <Link
                 href={footerContent.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-sm text-white-700 transition-colors hover:text-white underline-offset-4 hover:underline justify-end sm:justify-start"
+                className="group flex items-center gap-2 text-sm text-white-700 transition-colors hover:text-white underline-offset-4 hover:underline"
                 aria-label="View source code on GitHub"
               >
                 <Github className="h-4 w-4 opacity-70 transition-opacity group-hover:opacity-100" />
