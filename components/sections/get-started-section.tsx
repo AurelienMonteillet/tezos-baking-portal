@@ -8,6 +8,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ChevronRight, ArrowRight } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { OctezReleaseTag } from "@/components/sections/octez-release-tag"
 import { getStartedContent } from "@/content/get-started"
 
 export function GetStartedSection() {
@@ -37,6 +38,7 @@ export function GetStartedSection() {
           <p className="max-w-[900px] text-white-900 text-sm sm:text-base md:text-lg leading-relaxed px-4">
             {getStartedContent.description}
           </p>
+          <OctezReleaseTag fallback={getStartedContent.tag} />
         </div>
 
         <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">

@@ -26,7 +26,12 @@ export function Header({ isScrolled, mobileMenuOpen, onMobileMenuToggle, onSmoot
       }`}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-8">
-        <Link href={headerContent.logoLink} target="_blank" rel="noopener noreferrer" className="flex items-center" aria-label="Tezos homepage">
+        <Link
+          href="#hero"
+          onClick={(e) => onSmoothScroll(e, "#hero")}
+          className="flex items-center"
+          aria-label="Back to top"
+        >
           <Image src={headerContent.logo} alt="Tezos Baking Portal" width={191} height={32} className="h-8 w-auto" priority />
         </Link>
 

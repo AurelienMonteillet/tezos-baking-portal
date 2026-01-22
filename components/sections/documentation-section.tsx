@@ -38,6 +38,7 @@ export function DocumentationSection() {
                     key={i}
                     href={item.href}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="flex flex-col items-start gap-4 p-4 sm:p-6 rounded-xl border border-white/5 bg-[#111] hover:border-brand-blue-600/30 transition-all cursor-pointer group shadow-[0_4px_20px_rgba(0,0,0,0.2)] underline-offset-4 hover:underline"
                     aria-label={`Open ${item.title} documentation`}
                   >

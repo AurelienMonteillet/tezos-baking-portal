@@ -57,6 +57,15 @@ export function Footer() {
                   {footerContent.builtBy[1].text}
                 </Link>
               </p>
+              <Link
+                href="https://tezos.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-white-700 transition-colors hover:text-white underline-offset-4 hover:underline"
+                aria-label="Powered by Tezos"
+              >
+                Powered by Tezos
+              </Link>
             </div>
 
             {/* Column 2: Community */}

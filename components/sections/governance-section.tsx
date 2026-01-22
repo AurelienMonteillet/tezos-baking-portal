@@ -64,6 +64,8 @@ export function GovernanceSection() {
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 md:gap-4 mt-8 md:mt-12 px-4">
           <Link
             href={governanceContent.buttons.primary.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex h-11 sm:h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-4 sm:px-5 font-heading font-normal text-sm sm:text-base md:text-lg leading-6 sm:leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff] w-full sm:w-auto sm:flex-shrink-0"
           >
             {governanceContent.buttons.primary.text}
