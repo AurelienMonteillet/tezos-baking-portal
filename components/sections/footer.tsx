@@ -41,7 +41,7 @@ export function Footer() {
                   href={footerContent.builtBy[0].href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors underline-offset-4 hover:underline"
+                  className="underline underline-offset-4 transition-colors hover:text-white"
                   aria-label={`Visit ${footerContent.builtBy[0].text} website`}
                 >
                   {footerContent.builtBy[0].text}
@@ -51,21 +51,24 @@ export function Footer() {
                   href={footerContent.builtBy[1].href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors underline-offset-4 hover:underline"
+                  className="underline underline-offset-4 transition-colors hover:text-white"
                   aria-label={`Visit ${footerContent.builtBy[1].text} website`}
                 >
                   {footerContent.builtBy[1].text}
                 </Link>
               </p>
-              <Link
-                href="https://tezos.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-white-700 transition-colors hover:text-white underline-offset-4 hover:underline"
-                aria-label="Powered by Tezos"
-              >
-                Powered by Tezos
-              </Link>
+              <p className="text-xs text-white-700">
+                Powered by{" "}
+                <Link
+                  href="https://tezos.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 transition-colors hover:text-white"
+                  aria-label="Powered by Tezos"
+                >
+                  Tezos
+                </Link>
+              </p>
             </div>
 
             {/* Column 2: Community */}
