@@ -147,11 +147,15 @@ export async function getCurrentCycle(force = false, currentLevel?: number): Pro
  * @returns Array of baker objects
  */
 export async function getActiveBakers(limit = 50): Promise<Baker[]> {
-  return cachedTzktFetch<Baker[]>(
-    `/v1/delegates?active=true&sort.desc=stakingBalance&limit=${limit}`,
+  const bakers = await cachedTzktFetch<Baker[]>(
+    `/v1/delegates?active=true&limit=${limit}`,
     CacheKeys.activeBakers(limit),
     CacheStrategies.BAKERS_LIST,
   )
+
+  return bakers
+    .slice()
+    .sort((a, b) => (b.stakingBalance ?? 0) - (a.stakingBalance ?? 0))
 }
 
 /**

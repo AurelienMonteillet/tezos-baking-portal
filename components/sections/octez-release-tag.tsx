@@ -26,7 +26,7 @@ export function OctezReleaseTag({ fallback }: OctezReleaseTagProps) {
 
     const load = async () => {
       try {
-        const response = await fetch("/api/octez-latest")
+        const response = await fetch("/api/octez-latest.json")
         if (!response.ok) return
         const data = (await response.json()) as OctezTagData
         if (!data?.text || !data?.href) return
