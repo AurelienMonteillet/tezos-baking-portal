@@ -77,7 +77,7 @@ export const metadata: Metadata = {
       "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
     images: [
       {
-        url: "/tezos-baking-portal-og-v2.svg",
+        url: "/tezos-baking-portal-og-v3.png",
         width: 1200,
         height: 630,
         alt: "Tezos Baking Portal",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tezos Baking Portal",
     description: "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides.",
-    images: ["/tezos-baking-portal-og-v2.svg"],
+    images: ["/tezos-baking-portal-og-v3.png"],
   },
   robots: {
     index: true,
@@ -150,14 +150,6 @@ export default function RootLayout({
                 name: "Tezos Baking Portal",
                 description: "Your comprehensive resource for Tezos baking — from setup to optimization, governance to rewards.",
                 url: process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com",
-                potentialAction: {
-                  "@type": "SearchAction",
-                  target: {
-                    "@type": "EntryPoint",
-                    urlTemplate: `${process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"}/?q={search_term_string}`,
-                  },
-                  "query-input": "required name=search_term_string",
-                },
               },
               {
                 "@context": "https://schema.org",

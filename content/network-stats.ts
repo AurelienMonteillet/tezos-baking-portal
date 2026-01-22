@@ -11,11 +11,11 @@ export const networkStatsContent = {
     },
     buttons: {
       historical: {
-        text: "Historical data",
+        text: "Historical data on TzKT",
         href: "https://tzkt.io/cycles", 
       },
       bakerStats: {
-        text: "Baker stats",
+        text: "Baker stats on TzKT",
         href: "https://tzkt.io/bakers",
       },
     },
