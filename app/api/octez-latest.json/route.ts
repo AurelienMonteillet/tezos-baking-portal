@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 
 const VERSIONS_URL = "https://octez.tezos.com/releases/versions.json"
 const DEFAULT_RESPONSE = {
-  text: "Octez v24.0 available now",
+  text: "Octez v24.1 available now",
   href: "https://octez.tezos.com/docs/releases/version-24.html",
 }
 

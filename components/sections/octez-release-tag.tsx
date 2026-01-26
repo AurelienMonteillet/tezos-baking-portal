@@ -14,20 +14,9 @@ type OctezTagData = {
   href: string
 }
 
-type OctezVersion = {
-  major: number
-  minor: number
-  latest?: boolean
-  active?: boolean
-  rc?: number
-  announcement?: string
-}
-
 interface OctezReleaseTagProps {
   fallback: OctezTagData
 }
-
-const VERSIONS_URL = "https://octez.tezos.com/releases/versions.json"
 
 export function OctezReleaseTag({ fallback }: OctezReleaseTagProps) {
   const [tag, setTag] = useState<OctezTagData>(fallback)
@@ -37,20 +26,13 @@ export function OctezReleaseTag({ fallback }: OctezReleaseTagProps) {
 
     const load = async () => {
       try {
-        // Fetch directly from Octez API to get the latest version
-        const response = await fetch(VERSIONS_URL)
+        // Use our API route to avoid CORS issues
+        // Note: With static export, this is pre-rendered at build time
+        // but it will be updated on each deployment
+        const response = await fetch("/api/octez-latest.json")
         if (!response.ok) return
-        
-        const versions = (await response.json()) as OctezVersion[]
-        const latest = versions.find(version => version.latest && !version.rc)
-        
-        if (!latest || !latest.announcement) return
-        
-        const data: OctezTagData = {
-          text: `Octez v${latest.major}.${latest.minor} available now`,
-          href: latest.announcement,
-        }
-        
+        const data = (await response.json()) as OctezTagData
+        if (!data?.text || !data?.href) return
         if (isMounted) setTag(data)
       } catch {
         // Keep fallback

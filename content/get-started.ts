@@ -4,7 +4,7 @@ export const getStartedContent = {
   title: "Getting Started",
   description: "Everything you need to set up and run your own Tezos baker.",
   tag: {
-    text: "Octez v24.0 available now",
+    text: "Octez v24.1 available now",
     href: "https://octez.tezos.com/docs/releases/version-24.html",
   },
   cards: [
