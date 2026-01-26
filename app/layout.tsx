@@ -103,14 +103,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      // Prefer PNG for broad favicon support across browsers
+      // Multiple sizes for better display across platforms
       { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
       // Keep SVG as a fallback for browsers that support it
-      { url: "/tezos-logomark.svg", sizes: "32x32", type: "image/svg+xml" },
+      { url: "/tezos-logomark.svg", sizes: "any", type: "image/svg+xml" },
     ],
     apple: [
-      // Apple Touch Icon: PNG is the most reliable format
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      // Apple Touch Icon: use larger size for better quality
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
     shortcut: "/icon.png",
   },
@@ -132,11 +134,14 @@ export default function RootLayout({
         <meta name="google-site-verification" content="H8WGaQWNNKHdKrzh9TseVz6opGZlWwr0wK-c2Re0T5Q" />
         <meta name="google-site-verification" content="pimXch41H7tmNw54yVujx8uqvnWNZ2LWufoxSnc_C9w" />
         
-        {/* Favicon - prefer PNG for broad browser support; keep SVG as fallback */}
+        {/* Favicon - multiple sizes for better display across platforms and Google */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
-        <link rel="icon" type="image/svg+xml" sizes="32x32" href="/tezos-logomark.svg" />
-        <link rel="shortcut icon" type="image/png" href="/icon.png" />
-        <link rel="apple-touch-icon" sizes="32x32" href="/icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+        <link rel="icon" type="image/svg+xml" sizes="any" href="/tezos-logomark.svg" />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
         
         {/* Structured Data for SEO - Non-blocking */}
         <script
