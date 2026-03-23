@@ -86,20 +86,20 @@ export function NetworkStatsSection({
                     disabled={bakersLoading}
                     aria-label="Refresh bakers statistics"
                   >
-                    <RefreshCw className={`h-4 w-4 ${bakersLoading ? "animate-spin" : ""}`} />
+                    <RefreshCw className={`h-4 w-4 ${bakersLoading ? "motion-safe:animate-spin" : ""}`} />
                   </Button>
                 </div>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 flex-1">
                 {networkLoading || bakersLoading ? (
-                  <div className="flex items-center justify-center py-12">
+                  <div className="flex items-center justify-center py-12" role="status" aria-label="Loading statistics">
                     <div className="text-center space-y-3">
-                      <div className="animate-spin rounded-full h-10 w-10 border-2 border-brand-blue-600 border-t-transparent mx-auto"></div>
+                      <div className="motion-safe:animate-spin rounded-full h-10 w-10 border-2 border-brand-blue-600 border-t-transparent mx-auto"></div>
                       <p className="text-sm text-white-700">Loading from cache...</p>
                     </div>
                   </div>
                 ) : networkError || bakersError ? (
-                  <div className="flex items-center justify-center py-12">
+                  <div className="flex items-center justify-center py-12" role="alert">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-red-400">Error</div>
                       <p className="text-sm text-white-700 mt-2">Failed to load data</p>
@@ -111,16 +111,16 @@ export function NetworkStatsSection({
                       <div className="flex items-center justify-center py-6 bg-brand-blue-600/10 rounded-lg border border-brand-blue-600/20">
                         <div className="text-center space-y-2 w-full px-4">
                           <div className="text-4xl sm:text-5xl font-bold text-brand-blue-600">
-                            {bakersStats ? `${bakersStats.stakingApy.toFixed(2)}%` : "9.73%"}
+                            {bakersStats ? `${bakersStats.stakingApy.toFixed(2)}%` : "8.02%"}
                           </div>
                           <p className="text-white-700 text-xs sm:text-sm font-medium">Staking APY</p>
-                          <p className="text-white-700 text-xs">For active bakers</p>
+                          <p className="text-white-700 text-xs">For stakers</p>
                         </div>
                       </div>
                       <div className="flex items-center justify-center py-6 bg-brand-blue-600/10 rounded-lg border border-brand-blue-600/20">
                         <div className="text-center space-y-2 w-full px-4">
                           <div className="text-4xl sm:text-5xl font-bold text-brand-blue-600">
-                            {bakersStats ? `${bakersStats.delegationApy.toFixed(2)}%` : "3.24%"}
+                            {bakersStats ? `${bakersStats.delegationApy.toFixed(2)}%` : "2.67%"}
                           </div>
                           <p className="text-white-700 text-xs sm:text-sm font-medium">Delegation APY</p>
                           <p className="text-white-700 text-xs">For delegators</p>
@@ -181,14 +181,14 @@ export function NetworkStatsSection({
                     disabled={networkLoading}
                     aria-label="Refresh network statistics"
                   >
-                    <RefreshCw className={`h-4 w-4 ${networkLoading ? "animate-spin" : ""}`} />
+                    <RefreshCw className={`h-4 w-4 ${networkLoading ? "motion-safe:animate-spin" : ""}`} />
                   </Button>
                 </div>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 flex-1">
                 {networkLoading || bakersLoading ? (
-                  <div className="flex items-center justify-center py-12">
-                    <div className="animate-spin rounded-full h-8 w-8 border-2 border-brand-blue-600 border-t-transparent"></div>
+                  <div className="flex items-center justify-center py-12" role="status" aria-label="Loading network data">
+                    <div className="motion-safe:animate-spin rounded-full h-8 w-8 border-2 border-brand-blue-600 border-t-transparent"></div>
                   </div>
                 ) : (
                   <div className="space-y-4 py-4">
@@ -216,7 +216,7 @@ export function NetworkStatsSection({
                           className="inline-flex items-center gap-1.5 text-brand-blue-400 hover:text-brand-blue-300 disabled:text-white-500 disabled:cursor-not-allowed text-sm font-medium transition-colors underline underline-offset-2 cursor-pointer"
                           aria-label="Refresh to load current cycle"
                         >
-                          <RefreshCw className={`h-3.5 w-3.5 ${networkLoading ? "animate-spin" : ""}`} />
+                          <RefreshCw className={`h-3.5 w-3.5 ${networkLoading ? "motion-safe:animate-spin" : ""}`} />
                           {networkLoading ? "Loading..." : "Refresh"}
                         </button>
                       )}

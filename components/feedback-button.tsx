@@ -16,19 +16,24 @@ export function FeedbackButton() {
   // Manage scroll position to shift button when "Scroll to Top" is visible
   // The Scroll to Top button appears on the home page when scrollY > 400
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      // Only shift on home page where the scroll-to-top button exists
-      if (pathname === "/") {
-        setIsShifted(window.scrollY > 400)
-      } else {
-        setIsShifted(false)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (pathname === "/") {
+            setIsShifted(window.scrollY > 400)
+          } else {
+            setIsShifted(false)
+          }
+          ticking = false
+        })
+        ticking = true
       }
     }
 
-    // Initial check
     handleScroll()
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [pathname])
 
@@ -65,7 +70,7 @@ export function FeedbackButton() {
           "fixed bottom-8 z-50",
           "h-12 w-12 rounded-full",
           "bg-brand-blue-600/80 backdrop-blur-sm text-white shadow-lg",
-          "transition-all hover:bg-brand-blue-600 hover:scale-110",
+          "transition-all hover:bg-brand-blue-600 motion-safe:hover:scale-110",
           "focus:outline-none focus:ring-2 focus:ring-brand-blue-500 focus:ring-offset-2 focus:ring-offset-black-900",
           // Dynamic positioning: shifts to left when ScrollToTop is visible, otherwise same position as ScrollToTop
           isShifted ? "right-24" : "right-8"
@@ -88,6 +93,9 @@ export function FeedbackButton() {
         >
           {/* Modal Content */}
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="feedback-modal-title"
             className={cn(
               "relative w-full max-w-4xl",
               "bg-black-800 rounded-2xl",
@@ -102,7 +110,7 @@ export function FeedbackButton() {
           >
             {/* Modal Header */}
             <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/10 flex-shrink-0">
-              <h2 className="text-xl sm:text-2xl font-heading font-normal text-white-900">
+              <h2 id="feedback-modal-title" className="text-xl sm:text-2xl font-heading font-normal text-white-900">
                 Share your feedback
               </h2>
               <Button
@@ -123,7 +131,7 @@ export function FeedbackButton() {
                 className="w-full h-full border-0"
                 title="Asana feedback form"
                 allow="clipboard-write"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
+                sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
               />
             </div>
           </div>

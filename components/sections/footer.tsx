@@ -6,22 +6,14 @@
  * Site footer with links, copyright, and attribution
  */
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Github } from "lucide-react"
 import { footerContent } from "@/content/footer"
 
 export function Footer() {
-  // Start with current year as default (2024, 2025, etc.)
-  // This will be updated on client mount to ensure it's always accurate
-  const [copyrightYear, setCopyrightYear] = useState("2024")
-
-  // Update copyright year on client mount to ensure it's always current
-  // This runs only on client, preventing hydration mismatch
-  useEffect(() => {
-    setCopyrightYear(new Date().getFullYear().toString())
-  }, [])
+  const [copyrightYear] = useState(() => new Date().getFullYear().toString())
 
   return (
     <footer className="w-full border-t border-white/10 bg-black-900">
@@ -119,7 +111,7 @@ export function Footer() {
                 className="group flex items-center gap-2 text-sm text-white-700 transition-colors hover:text-white underline-offset-4 hover:underline"
                 aria-label="View source code on GitHub"
               >
-                <Github className="h-4 w-4 opacity-70 transition-opacity group-hover:opacity-100" />
+                <Github className="h-4 w-4 opacity-70 transition-opacity group-hover:opacity-100" aria-hidden="true" />
                 <span>{footerContent.githubText} GitHub</span>
               </Link>
             </div>

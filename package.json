@@ -13,13 +13,12 @@
     "deploy:prod": "bash scripts/deploy-s3.sh production"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "latest",
-    "@radix-ui/react-tabs": "latest",
+    "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
     "next": "^14.2.33",
-    "next-themes": "latest",
+    "next-themes": "^0.4.6",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.5"

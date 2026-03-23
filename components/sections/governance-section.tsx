@@ -50,7 +50,7 @@ export function GovernanceSection() {
             <div className="space-y-3 md:space-y-4">
               {governanceContent.steps.map((step, index) => (
                 <div key={index} className="flex gap-2 md:gap-3">
-                  <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-brand-blue-600 flex-shrink-0 mt-1" />
+                  <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-brand-blue-600 flex-shrink-0 mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="text-lg md:text-xl font-heading font-normal text-white-900 mb-1 md:mb-2">{step.title}</h3>
                     <p className="text-sm md:text-base text-white-700 leading-relaxed">{step.description}</p>
@@ -78,7 +78,7 @@ export function GovernanceSection() {
           >
             <span className="flex items-center justify-center gap-2">
               {governanceContent.buttons.secondary.text}
-              <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+              <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" aria-hidden="true" />
             </span>
           </Link>
         </div>

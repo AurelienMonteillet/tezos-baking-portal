@@ -29,8 +29,7 @@ export function HeroSection() {
           src={heroContent.images.background}
           alt=""
           fill
-          priority
-          fetchPriority="high"
+          loading="lazy"
           className="absolute top-0 right-0 w-full h-full object-cover object-top-right opacity-70"
           style={{ maxWidth: "100%", transform: "scale(1.2)" }}
           sizes="100vw"

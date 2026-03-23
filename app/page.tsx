@@ -51,19 +51,6 @@ export default function Home() {
     refresh: refreshBakers,
   } = useBakersStats()
 
-  // Preload critical data for better performance - deferred to avoid blocking initial render
-  useEffect(() => {
-    // Defer preloading to avoid blocking initial render
-    const timer = setTimeout(() => {
-      import("@/lib/tzkt-api-cached").then(({ preloadCriticalData }) => {
-        preloadCriticalData().catch(() => {
-          // Silently fail - preload is not critical
-        })
-      })
-    }, 500)
-    return () => clearTimeout(timer)
-  }, [])
-
   // UI state management
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -87,11 +74,14 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const prefersReducedMotion = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: prefersReducedMotion() ? "auto" : "smooth",
     })
   }
 
@@ -104,7 +94,7 @@ export default function Home() {
     const element = document.querySelector(targetId)
     if (element) {
       element.scrollIntoView({
-        behavior: "smooth",
+        behavior: prefersReducedMotion() ? "auto" : "smooth",
         block: "start",
       })
     }

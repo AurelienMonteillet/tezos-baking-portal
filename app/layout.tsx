@@ -56,6 +56,9 @@ export const metadata: Metadata = {
   },
   description: "Tezos Baking Portal - Complete guide to Tezos baking, staking, and delegation. Real-time APY, network statistics, baker tools, and step-by-step setup guides. Start baking Tezos (XTZ) today.",
   keywords: ["Tezos", "baking", "staking", "delegation", "blockchain", "cryptocurrency", "XTZ", "baker", "validator"],
+  other: {
+    "theme-color": "#0c0c10",
+  },
   authors: [{ name: "Tezos Baking Portal" }],
   creator: "Tezos Community",
   publisher: "Tezos Baking Portal",
@@ -134,55 +137,49 @@ export default function RootLayout({
         <meta name="google-site-verification" content="H8WGaQWNNKHdKrzh9TseVz6opGZlWwr0wK-c2Re0T5Q" />
         <meta name="google-site-verification" content="pimXch41H7tmNw54yVujx8uqvnWNZ2LWufoxSnc_C9w" />
         
-        {/* Favicon - multiple sizes for better display across platforms and Google */}
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
-        <link rel="icon" type="image/svg+xml" sizes="any" href="/tezos-logomark.svg" />
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
-        
         {/* Structured Data for SEO - Non-blocking */}
         <script
           type="application/ld+json"
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                name: "Tezos Baking Portal",
-                description: "Your comprehensive resource for Tezos baking — from setup to optimization, governance to rewards.",
-                url: process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com",
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                name: "Tezos Baking Portal",
-                description: "Comprehensive resource for Tezos baking, staking, and delegation",
-                url: process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com",
-                logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"}/tezos-baking-portal-logo.svg`,
-                sameAs: [
-                  "https://github.com/AurelienMonteillet/tezos-baking-portal",
-                  "https://discord.com/invite/tezos",
-                  "https://tezos.stackexchange.com/",
-                  "https://forum.tezosagora.org/",
-                ],
-              },
-            ]),
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": `${process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"}/#website`,
+                  name: "Tezos Baking Portal",
+                  description: "Your comprehensive resource for Tezos baking — from setup to optimization, governance to rewards.",
+                  url: process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com",
+                },
+                {
+                  "@type": "Organization",
+                  "@id": `${process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"}/#organization`,
+                  name: "Tezos Baking Portal",
+                  description: "Comprehensive resource for Tezos baking, staking, and delegation",
+                  url: process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com",
+                  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://bakers.tezos.com"}/icon-512.png`,
+                  sameAs: [
+                    "https://github.com/AurelienMonteillet/tezos-baking-portal",
+                    "https://discord.com/invite/tezos",
+                    "https://tezos.stackexchange.com/",
+                    "https://forum.tezosagora.org/",
+                  ],
+                },
+              ],
+            }),
           }}
         />
         {/* PostHog Analytics is loaded client-side after LCP via DeferredPostHog component to improve performance */}
         {/* Removed inline script to prevent render blocking - see DeferredPostHog component */}
         
-        {/* Preload LCP image (hero illustration) for better performance */}
+        {/* Preload GT Eesti Display font to avoid FOUT */}
         <link
           rel="preload"
-          as="image"
-          href="/tezos-baking-illustration-with-people-collaboratin.webp"
-          type="image/webp"
-          fetchPriority="high"
+          href="/fonts/GT-Eesti-Display-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
         />
       </head>
       <body className="font-sans antialiased">

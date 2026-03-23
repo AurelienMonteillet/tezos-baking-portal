@@ -50,8 +50,7 @@ async function cachedTzktFetch<T>(
     // If using stale-while-revalidate, trigger background update if data is stale
     if (cacheStrategy.staleWhileRevalidate) {
       // Check if data is expired
-      const entry = (cacheManager as any).cache.get(cacheKey)
-      if (entry && Date.now() - entry.timestamp > entry.ttl) {
+      if (cacheManager.isStale(cacheKey)) {
         // Background update (don't wait for it)
         fetchAndCache<T>(endpoint, cacheKey, cacheStrategy).catch(() => {
           // Silently ignore background update errors
@@ -79,7 +78,14 @@ async function fetchAndCache<T>(
   cacheKey: string,
   cacheStrategy: (typeof CacheStrategies)[keyof typeof CacheStrategies],
 ): Promise<T> {
-  const response = await fetch(`${TZKT_API_BASE}${endpoint}`)
+  const controller = new AbortController()
+  const timeoutId = setTimeout(() => controller.abort(), 10000)
+
+  const response = await fetch(`${TZKT_API_BASE}${endpoint}`, {
+    signal: controller.signal,
+  })
+  clearTimeout(timeoutId)
+
   if (!response.ok) {
     throw new Error(`TzKT API error: ${response.status} ${response.statusText}`)
   }
@@ -190,7 +196,7 @@ export async function getBakerRewards(address: string, limit = 10): Promise<Bake
 /**
  * Get aggregated statistics about all bakers.
  * Calculates total bakers, active bakers, total staking, and APY.
- * APY values are fetched from tez.cool (with sane defaults if it fails).
+ * APY values are fetched from BakingBad API (with sane defaults if it fails).
  * Cached for 1 minute (no localStorage persistence).
  * @param force - If true, bypass cache and force fresh fetch
  * @returns Object containing aggregated baker statistics
@@ -228,48 +234,63 @@ export async function getBakersStats(force = false): Promise<{
   }
 
   try {
-    // ========== Step 1: Fetch APY data from tez.cool API ==========
-    // tez.cool provides accurate, community-trusted APY calculations
-    // using comprehensive network data from TzKT
-    let stakingApy = 9.73 // Default fallback
-    let delegationApy = 3.24 // Default fallback
-    
-    try {
-      // Create timeout controller for fetch
-      const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 5000) // 5 second timeout
-      
-      const tezCoolResponse = await fetch("https://tez.cool/api/v1/getData", {
-        signal: controller.signal,
-      })
-      clearTimeout(timeoutId)
-      
-      if (tezCoolResponse.ok) {
-        const tezCoolData = await tezCoolResponse.json()
-        const stakingData = tezCoolData?.homeData?.stakingData
-        stakingApy = stakingData?.stakingApy || 9.73
-        delegationApy = stakingData?.delegationApy || 3.24
+    // Fetch APY from BakingBad and network data from TzKT in parallel
+    let stakingApy = 8.02
+    let delegationApy = 2.67
+    let totalStaking = 300149220000000
+    let totalBakers = 264
+
+    const bakingBadPromise = (async () => {
+      try {
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 5000)
+        const response = await fetch("https://api.baking-bad.org/v3/bakers?status=active&limit=100", {
+          signal: controller.signal,
+        })
+        clearTimeout(timeoutId)
+        if (response.ok) {
+          const bakers = await response.json()
+          // Compute median APY from active bakers
+          const stakingApys = bakers
+            .filter((b: { staking?: { enabled: boolean; estimatedApy: number } }) => b.staking?.enabled && b.staking.estimatedApy > 0)
+            .map((b: { staking: { estimatedApy: number } }) => b.staking.estimatedApy)
+            .sort((a: number, b: number) => a - b)
+          const delegationApys = bakers
+            .filter((b: { delegation?: { enabled: boolean; estimatedApy: number } }) => b.delegation?.enabled && b.delegation.estimatedApy > 0)
+            .map((b: { delegation: { estimatedApy: number } }) => b.delegation.estimatedApy)
+            .sort((a: number, b: number) => a - b)
+
+          if (stakingApys.length > 0) {
+            const mid = Math.floor(stakingApys.length / 2)
+            stakingApy = (stakingApys.length % 2 === 0
+              ? (stakingApys[mid - 1] + stakingApys[mid]) / 2
+              : stakingApys[mid]) * 100
+          }
+          if (delegationApys.length > 0) {
+            const mid = Math.floor(delegationApys.length / 2)
+            delegationApy = (delegationApys.length % 2 === 0
+              ? (delegationApys[mid - 1] + delegationApys[mid]) / 2
+              : delegationApys[mid]) * 100
+          }
+        }
+      } catch {
+        // Silently fallback to default APY values
       }
-    } catch (tezCoolError) {
-      // Silently fallback to default APY values if tez.cool fails
-      // This is expected and not a critical error
-    }
-    
-    // ========== Step 2: Get network data from TzKT ==========
-    let totalStaking = 300149220000000 // 300,149,220 tez in mutez (default)
-    let totalBakers = 264 // Default fallback
-    
-    try {
-      const statsData = await getNetworkStats(force)
-      const cycleData = await getCurrentCycle(force, statsData.level)
-      totalStaking = statsData.totalFrozen
-      totalBakers = cycleData.totalBakers
-    } catch (tzktError) {
-      // If TzKT fails, use default values
-      // This is expected on first load if API is slow
-    }
-    
-    // ========== Step 3: Return aggregated statistics ==========
+    })()
+
+    const tzktPromise = (async () => {
+      try {
+        const statsData = await getNetworkStats(force)
+        const cycleData = await getCurrentCycle(force, statsData.level)
+        totalStaking = statsData.totalFrozen
+        totalBakers = cycleData.totalBakers
+      } catch {
+        // If TzKT fails, use default values
+      }
+    })()
+
+    await Promise.all([bakingBadPromise, tzktPromise])
+
     const result = {
       totalBakers: totalBakers,
       activeBakers: totalBakers,
@@ -290,9 +311,9 @@ export async function getBakersStats(force = false): Promise<{
       totalBakers: 264,
       activeBakers: 264,
       totalStaking: 300149220000000, // 300,149,220 tez in mutez
-      averageApy: 9.73,
-      stakingApy: 9.73,
-      delegationApy: 3.24,
+      averageApy: 8.02,
+      stakingApy: 8.02,
+      delegationApy: 2.67,
     }
 
     // Cache the result even on error to prevent repeated failures

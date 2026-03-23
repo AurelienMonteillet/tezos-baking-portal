@@ -62,7 +62,7 @@ export function GetStartedSection() {
                 <ul className="space-y-3">
                   {card.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-white-700">
-                      <ChevronRight className="h-4 w-4 text-brand-blue-600 flex-shrink-0 mt-0.5" />
+                      <ChevronRight className="h-4 w-4 text-brand-blue-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                       <span>{item}</span>
                     </li>
                   ))}

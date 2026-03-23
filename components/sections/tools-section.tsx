@@ -109,6 +109,7 @@ export function ToolsSection() {
             <button
               onClick={() => setShowAll(!showAll)}
               className="inline-flex h-12 items-center justify-center rounded-full bg-white-700 text-black-900 px-5 font-heading font-normal text-lg leading-7 transition-all hover:bg-white-900 cursor-pointer focus-visible:ring-[3px] focus-visible:ring-[#8aabff]"
+              aria-expanded={showAll}
               aria-label={showAll ? "Show fewer tools" : "Show more tools"}
             >
               {showAll ? (

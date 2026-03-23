@@ -32,7 +32,7 @@ export function Header({ isScrolled, mobileMenuOpen, onMobileMenuToggle, onSmoot
           className="flex items-center"
           aria-label="Back to top"
         >
-          <Image src={headerContent.logo} alt="Tezos Baking Portal" width={191} height={32} className="h-8 w-auto" priority />
+          <Image src={headerContent.logo} alt="Tezos Baking Portal" width={191} height={32} className="h-8 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -55,13 +55,15 @@ export function Header({ isScrolled, mobileMenuOpen, onMobileMenuToggle, onSmoot
           className="md:hidden p-2 text-white"
           onClick={onMobileMenuToggle}
           aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-nav"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-black-900/95 backdrop-blur-md" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
+        <div id="mobile-nav" className="md:hidden bg-black-900/95 backdrop-blur-md">
           <nav className="container px-4 py-4 flex flex-col gap-4" aria-label="Mobile navigation">
             {headerContent.navLinks.map((link, index) => (
               <Link

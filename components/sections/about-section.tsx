@@ -39,7 +39,7 @@ export function AboutSection() {
             <div className="space-y-3 md:space-y-4">
               {aboutContent.features.map((feature, index) => (
                 <div key={index} className="flex gap-2 md:gap-3">
-                  <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-brand-blue-600 flex-shrink-0 mt-1" />
+                  <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-brand-blue-600 flex-shrink-0 mt-1" aria-hidden="true" />
                   <div>
                     <h3 className="text-lg md:text-xl font-heading font-normal text-white-900 mb-1 md:mb-2">
                       {feature.title}

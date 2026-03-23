@@ -6,8 +6,8 @@ export const networkStatsContent = {
     description: "Estimated annual percentage yield for staking and delegating tez.",
     label: "Annual Yield",
     dataSource: {
-      text: "tez.cool",
-      href: "https://tez.cool",
+      text: "BakingBad",
+      href: "https://baking-bad.org",
     },
     buttons: {
       historical: {

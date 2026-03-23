@@ -107,6 +107,17 @@ class CacheManager {
   }
 
   /**
+   * Check if a cache entry exists and is expired
+   * @param key - Cache key to check
+   * @returns true if entry exists and is past its TTL
+   */
+  isStale(key: string): boolean {
+    const entry = this.cache.get(key)
+    if (!entry) return false
+    return this.isExpired(entry)
+  }
+
+  /**
    * Invalidate a specific cache entry
    * @param key - Cache key to invalidate
    */
